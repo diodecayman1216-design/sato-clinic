@@ -1,0 +1,47 @@
+佐藤医院 静的Webサイト
+
+index.html をブラウザで開くと、トップページを表示できます。
+各ナビゲーションから下層ページへ移動できます。
+HTML/CSS のみで構成し、外部ライブラリや JavaScript は使っていません。
+
+構成:
+index.html: トップページ
+news.html: お知らせ
+services.html: 診療内容
+about.html: 当院について
+staff.html: スタッフ紹介
+faq.html: よくあるご質問
+css/style.css: 共通スタイル
+assets/: 画像素材（支給画像とPDFから抽出したロゴ・アイコン・地図）
+
+PC 1440px 幅のデザインに合わせて制作しています。
+電話・住所等は教材用のダミー情報です。地図はデザインPDFの静止画像です。
+
+
+【フォント指定：Figmaに準拠（2026-11-12改訂）】
+・Regular: M PLUS Rounded 1c / font-weight: 400
+・Medium:  M PLUS Rounded 1c / font-weight: 500
+・Bold:    Rounded Mplus 1c Bold（Figmaの独立フォントファミリー）
+
+実装について：
+・Google FontsよりM PLUS Rounded 1cの400/500/700を読み込みます。ネット接続が必要です。
+・BoldはCSSの@font-faceで「Rounded Mplus 1c Bold」という
+  ローカルフォントを最優先で使用します。端末に未インストールの場合、
+  Google FontsのM PLUS Rounded 1c 700にフォールバックします。
+・元のFigma用Boldファイルがassets.zipに含まれていなかったため、
+  フォントファイルそのものは同梱していません。
+・実際のFigma用BoldをWebで全員に同じように表示するには、
+  権利上Web配信可能なフォントファイルを別途用意して、
+  css/style.cssの@font-faceのsrcにurl('../assets/〈ファイル名〉')を追加してください。
+・画像化されているロゴやアイコンは画像本来の文字・形状をそのまま使っています。
+・PDFだけではFigmaのタイポグラフィー属性（各レイヤーのfont-size等）を
+  完全に数値で取り出せないため、サイズ・行間・字間はデザイン画像に合わせた推定値です。
+・固定幅PCレイアウトを優先しており、レスポンシブには対応していません。
+
+写真位置修正（2026-11-12）:
+Figma PDFの写真表示領域に合わせて、院長挨拶・トップページのスタッフ写真4枚・スタッフ紹介ページの人物写真3枚を切り抜き調整しました。
+修正済みの写真はassets/figma-*.pngです。元画像もassets/に保存しています。
+
+架空サイトの明示（2026-11-12）:
+すべてのHTMLのheadに noindex, nofollow を追加し、各フッターに職業訓練用の架空サイトであることを明記しています。
+検索エンジンへの noindex はクロール時に適用されます。サイトを一般公開する際は robots.txt などでクローラーのアクセスを先に遮断しないよう留意してください。
