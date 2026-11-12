@@ -1,0 +1,1023 @@
+/* 変更: 1440pxのPCデザインを保つための配置・固定寸法をこのファイルに集約。
+   現段階では狭い画面でも従来のPC表示を維持するため、メディアクエリで囲んでいない。
+   スマートフォン版のFigma確定後は、このファイルの後に画面幅別のCSSを読み込む。
+   bodyのmin-width、.blockのposition、各ページのleft/top/width/heightを上書きし、
+   ページごとの親要素にFlexbox/Gridを設定して通常フローへ移行する。
+   .sr-onlyや見出しの装飾線の絶対配置は、レスポンシブでも必要なためstyle.cssに残す。 */
+
+/* 変更: 共通部品からPC依存の寸法・座標だけを分離。装飾はstyle.cssで管理する。 */
+body {
+  min-width: var(--desktop-width);
+}
+
+.site-header {
+  height: 300px;
+}
+
+.header-logo {
+  position: absolute;
+  left: 30px;
+  top: 41px;
+  width: 440px;
+  height: 132px;
+}
+
+.header-phone {
+  position: absolute;
+  right: 54px;
+  top: 55px;
+}
+
+.header-address {
+  position: absolute;
+  right: 54px;
+  top: 132px;
+}
+
+.site-nav {
+  position: absolute;
+  left: 58px;
+  top: 206px;
+  height: 56px;
+}
+
+.site-nav a {
+  width: 210px;
+  min-width: 210px;
+  height: 56px;
+}
+
+.site-nav a:last-child {
+  width: 200px;
+  min-width: 200px;
+}
+
+.block {
+  position: absolute;
+}
+
+.title-rule {
+  height: 70px;
+  width: 300px;
+}
+
+.sub-title {
+  height: 40px;
+}
+
+.news-row {
+  height: 70px;
+}
+
+.service-card {
+  height: 310px;
+  width: var(--content-width);
+}
+
+.qa-group {
+  height: 158px;
+}
+
+.about-policy {
+  width: var(--content-width);
+  height: 187px;
+}
+
+.hours-table {
+  width: var(--content-width);
+}
+
+.access-map {
+  width: 820px;
+  height: 690px;
+}
+
+.contact-lines {
+  grid-template-columns: 200px 300px;
+}
+
+.site-footer {
+  height: 360px;
+}
+
+.footer-logo {
+  position: absolute;
+  left: 33px;
+  top: 37px;
+  width: 443px;
+  height: 133px;
+}
+
+.footer-address {
+  position: absolute;
+  left: 51px;
+  top: 181px;
+}
+
+.footer-tel {
+  position: absolute;
+  left: 910px;
+  top: 67px;
+  width: 480px;
+  height: 141px;
+}
+
+.copyright {
+  position: absolute;
+  right: 50px;
+  bottom: 25px;
+}
+
+.location-card .access-label {
+  position: absolute;
+  left: 30px;
+  top: 25px;
+}
+
+.location-card .access-intro {
+  position: absolute;
+  left: 80px;
+  top: 104px;
+}
+
+.location-card .access-map {
+  position: absolute;
+  left: 40px;
+  top: 315px;
+  width: 820px;
+  height: 450px;
+}
+
+.location-card .access-caption {
+  position: absolute;
+  left: 75px;
+  top: 794px;
+}
+
+.training-disclaimer {
+  position: absolute;
+  left: 51px;
+  bottom: 58px;
+  width: calc(100% - 102px);
+}
+
+/* about: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
+.about-main {
+  height: 5206px;
+}
+
+.about-title {
+  left: 570px;
+  top: 57px;
+  width: 300px;
+  height: 70px;
+}
+
+.about-exterior {
+  left: 270px;
+  top: 164px;
+  width: var(--content-width);
+  height: 507px;
+}
+
+.about-intro {
+  left: 270px;
+  top: 701px;
+  width: var(--content-width);
+  height: 144px;
+}
+
+.about-policy-title {
+  left: 270px;
+  top: 897px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-policy-copy {
+  left: 270px;
+  top: 972px;
+  width: var(--content-width);
+  height: 175px;
+}
+
+.about-consultation-photo {
+  left: 270px;
+  top: 1166px;
+  width: 440px;
+  height: 248px;
+}
+
+.about-examination-photo {
+  left: 730px;
+  top: 1166px;
+  width: 440px;
+  height: 248px;
+}
+
+.about-community-title {
+  left: 270px;
+  top: 1475px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-community-copy {
+  left: 280px;
+  top: 1550px;
+  width: var(--content-width);
+  height: 112px;
+}
+
+.about-family-title {
+  left: 270px;
+  top: 1694px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-family-copy {
+  left: 280px;
+  top: 1769px;
+  width: var(--content-width);
+  height: 166px;
+}
+
+.about-family-photo {
+  left: 330px;
+  top: 1936px;
+  width: 800px;
+  height: 450px;
+}
+
+.about-equipment-title {
+  left: 270px;
+  top: 2447px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-equipment-copy {
+  left: 280px;
+  top: 2522px;
+  width: var(--content-width);
+  height: 110px;
+}
+
+.about-philosophy-title {
+  left: 270px;
+  top: 2693px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-philosophy-copy {
+  left: 270px;
+  top: 2768px;
+  width: var(--content-width);
+  height: 90px;
+}
+
+.about-policy-1 {
+  left: 270px;
+  top: 2891px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-2 {
+  left: 270px;
+  top: 3108px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-3 {
+  left: 270px;
+  top: 3325px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-4 {
+  left: 270px;
+  top: 3542px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-5 {
+  left: 270px;
+  top: 3759px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-6 {
+  left: 270px;
+  top: 3976px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-policy-7 {
+  left: 270px;
+  top: 4193px;
+  width: var(--content-width);
+  height: 187px;
+}
+
+.about-future-title {
+  left: 270px;
+  top: 4441px;
+  width: var(--content-width);
+  height: 40px;
+}
+
+.about-future-copy {
+  left: 270px;
+  top: 4516px;
+  width: var(--content-width);
+  height: 112px;
+}
+
+.about-team-photo {
+  left: 320px;
+  top: 4656px;
+  width: 800px;
+  height: 450px;
+}
+
+/* faq: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
+.faq-main {
+  height: 3783px;
+}
+
+.faq-title {
+  left: 570px;
+  top: 57px;
+  width: 300px;
+  height: 70px;
+}
+
+.faq-intro {
+  left: 378px;
+  top: 165px;
+  width: 800px;
+  height: 65px;
+}
+
+.faq-consultation-heading {
+  left: 395px;
+  top: 298px;
+  width: 650px;
+  height: 158px;
+}
+
+.faq-consultation-1 {
+  left: 270px;
+  top: 496px;
+  width: var(--content-width);
+  height: 215px;
+}
+
+.faq-consultation-2 {
+  left: 270px;
+  top: 741px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-consultation-3 {
+  left: 270px;
+  top: 959px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-vaccination-heading {
+  left: 395px;
+  top: 1207px;
+  width: 650px;
+  height: 158px;
+}
+
+.faq-vaccination-1 {
+  left: 270px;
+  top: 1405px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-vaccination-2 {
+  left: 270px;
+  top: 1623px;
+  width: var(--content-width);
+  height: 215px;
+}
+
+.faq-vaccination-3 {
+  left: 270px;
+  top: 1868px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-payments-heading {
+  left: 395px;
+  top: 2116px;
+  width: 650px;
+  height: 158px;
+}
+
+.faq-payments-1 {
+  left: 270px;
+  top: 2314px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-payments-2 {
+  left: 270px;
+  top: 2532px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-other-heading {
+  left: 395px;
+  top: 2780px;
+  width: 650px;
+  height: 158px;
+}
+
+.faq-other-1 {
+  left: 270px;
+  top: 2978px;
+  width: var(--content-width);
+  height: 188px;
+}
+
+.faq-other-2 {
+  left: 270px;
+  top: 3196px;
+  width: var(--content-width);
+  height: 215px;
+}
+
+.faq-other-3 {
+  left: 270px;
+  top: 3441px;
+  width: var(--content-width);
+  height: 242px;
+}
+
+/* home: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
+.home-main {
+  height: 9218px;
+}
+
+.home-hero {
+  left: 60px;
+  top: 60px;
+  width: 1320px;
+  height: 756px;
+}
+
+.home-hero-image {
+  width: 1320px;
+  height: 756px;
+}
+
+.home-hero-title {
+  position: absolute;
+  left: 70px;
+  top: 65px;
+}
+
+.home-hours-title {
+  left: 570px;
+  top: 867px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-hours-table {
+  left: 270px;
+  top: 980px;
+  width: var(--content-width);
+  height: 226px;
+}
+
+.home-hours-notes {
+  left: 440px;
+  top: 1222px;
+  width: 700px;
+  height: 130px;
+}
+
+.home-news-title {
+  left: 570px;
+  top: 1419px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-news-1 {
+  left: 266px;
+  top: 1532px;
+  width: var(--content-width);
+  height: 70px;
+}
+
+.home-news-2 {
+  left: 266px;
+  top: 1612px;
+  width: var(--content-width);
+  height: 70px;
+}
+
+.home-news-3 {
+  left: 266px;
+  top: 1692px;
+  width: var(--content-width);
+  height: 70px;
+}
+
+.home-news-4 {
+  left: 266px;
+  top: 1772px;
+  width: var(--content-width);
+  height: 70px;
+}
+
+.home-news-5 {
+  left: 266px;
+  top: 1852px;
+  width: var(--content-width);
+  height: 70px;
+}
+
+.home-news-more {
+  left: 920px;
+  top: 1962px;
+  width: 246px;
+  height: 58px;
+}
+
+.home-services-title {
+  left: 570px;
+  top: 2111px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-services-intro {
+  left: 320px;
+  top: 2219px;
+  width: 820px;
+  height: 65px;
+}
+
+.home-service-1 {
+  left: 271px;
+  top: 2308px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-service-2 {
+  left: 726px;
+  top: 2308px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-service-3 {
+  left: 271px;
+  top: 2567px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-service-4 {
+  left: 726px;
+  top: 2567px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-services-more {
+  left: 915px;
+  top: 2856px;
+  width: 246px;
+  height: 58px;
+}
+
+.home-about-title {
+  left: 570px;
+  top: 2995px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-exterior {
+  left: 296px;
+  top: 3108px;
+  width: 848px;
+  height: 477px;
+}
+
+.home-about-copy {
+  left: 270px;
+  top: 3623px;
+  width: var(--content-width);
+  height: 139px;
+}
+
+.home-about-more {
+  left: 924px;
+  top: 3810px;
+  width: 246px;
+  height: 58px;
+}
+
+.home-greeting-title {
+  left: 570px;
+  top: 3959px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-director-photo {
+  left: 268px;
+  top: 4072px;
+  width: 435px;
+  height: 574px;
+}
+
+.home-director-caption {
+  left: 268px;
+  top: 4657px;
+  width: 435px;
+  height: 95px;
+}
+
+.home-greeting-copy {
+  left: 753px;
+  top: 4078px;
+  width: 430px;
+  height: 615px;
+}
+
+.home-staff-title {
+  left: 570px;
+  top: 4811px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-staff-intro {
+  left: 266px;
+  top: 4913px;
+  width: var(--content-width);
+  height: 78px;
+}
+
+.home-doctor-card {
+  left: 269px;
+  top: 5035px;
+  width: 435px;
+  height: 418px;
+}
+
+.home-staff-card-image {
+  width: 385px;
+  height: 248px;
+}
+
+.home-nurse-card {
+  left: 734px;
+  top: 5035px;
+  width: 435px;
+  height: 418px;
+}
+
+.home-lab-card {
+  left: 269px;
+  top: 5484px;
+  width: 435px;
+  height: 418px;
+}
+
+.home-admin-card {
+  left: 734px;
+  top: 5484px;
+  width: 435px;
+  height: 418px;
+}
+
+.home-staff-more {
+  left: 925px;
+  top: 5952px;
+  width: 246px;
+  height: 58px;
+}
+
+.home-faq-title {
+  left: 570px;
+  top: 6101px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-faq-consultation {
+  left: 270px;
+  top: 6214px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-faq-vaccination {
+  left: 735px;
+  top: 6214px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-faq-payments {
+  left: 270px;
+  top: 6483px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-faq-other {
+  left: 735px;
+  top: 6483px;
+  width: 435px;
+  height: 239px;
+}
+
+.home-faq-more {
+  left: 924px;
+  top: 6772px;
+  width: 246px;
+  height: 58px;
+}
+
+.home-access-title {
+  left: 570px;
+  top: 6921px;
+  width: 300px;
+  height: 70px;
+}
+
+.home-location {
+  left: 270px;
+  top: 7034px;
+  width: var(--content-width);
+  height: 869px;
+}
+
+.home-subjects {
+  left: 270px;
+  top: 7933px;
+  width: var(--content-width);
+  height: 392px;
+}
+
+.home-contact {
+  left: 270px;
+  top: 8355px;
+  width: var(--content-width);
+  height: 355px;
+}
+
+.home-access-hours-table {
+  left: 270px;
+  top: 8770px;
+  width: var(--content-width);
+  height: 226px;
+}
+
+.home-access-hours-notes {
+  left: 440px;
+  top: 9012px;
+  width: 700px;
+  height: 130px;
+}
+
+/* staff: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
+.staff-main {
+  height: 3015px;
+}
+
+.staff-title {
+  left: 570px;
+  top: 57px;
+  width: 300px;
+  height: 70px;
+}
+
+.staff-intro {
+  left: 268px;
+  top: 155px;
+  width: var(--content-width);
+  height: 110px;
+}
+
+.staff-director-photo {
+  left: 268px;
+  top: 325px;
+  width: var(--content-width);
+  height: 507px;
+}
+
+.staff-director-name {
+  left: 268px;
+  top: 852px;
+  width: 180px;
+  height: 85px;
+}
+
+.staff-director-words {
+  left: 520px;
+  top: 858px;
+  width: 660px;
+  height: 90px;
+}
+
+.staff-director-career {
+  left: 268px;
+  top: 977px;
+  width: var(--content-width);
+  height: 50px;
+}
+
+.staff-director-specialty {
+  left: 268px;
+  top: 1025px;
+  width: var(--content-width);
+  height: 60px;
+}
+
+.staff-nurse-name {
+  left: 268px;
+  top: 1165px;
+  width: var(--content-width);
+  height: 55px;
+}
+
+.staff-nurse-photo {
+  left: 268px;
+  top: 1239px;
+  width: 420px;
+  height: 454px;
+}
+
+.staff-nurse-words {
+  left: 708px;
+  top: 1276px;
+  width: 435px;
+  height: 145px;
+}
+
+.staff-nurse-career {
+  left: 708px;
+  top: 1466px;
+  width: 435px;
+  height: 83px;
+}
+
+.staff-nurse-specialty {
+  left: 708px;
+  top: 1570px;
+  width: 445px;
+  height: 100px;
+}
+
+.staff-lab-name {
+  left: 268px;
+  top: 1776px;
+  width: var(--content-width);
+  height: 55px;
+}
+
+.staff-lab-photo {
+  left: 268px;
+  top: 1850px;
+  width: 420px;
+  height: 454px;
+}
+
+.staff-lab-words {
+  left: 708px;
+  top: 1887px;
+  width: 435px;
+  height: 145px;
+}
+
+.staff-lab-career {
+  left: 708px;
+  top: 2077px;
+  width: 435px;
+  height: 83px;
+}
+
+.staff-lab-specialty {
+  left: 708px;
+  top: 2181px;
+  width: 445px;
+  height: 100px;
+}
+
+.staff-admin-name {
+  left: 268px;
+  top: 2387px;
+  width: var(--content-width);
+  height: 55px;
+}
+
+.staff-admin-photo {
+  left: 268px;
+  top: 2461px;
+  width: 420px;
+  height: 454px;
+}
+
+.staff-admin-words {
+  left: 708px;
+  top: 2498px;
+  width: 435px;
+  height: 145px;
+}
+
+.staff-admin-career {
+  left: 708px;
+  top: 2688px;
+  width: 435px;
+  height: 83px;
+}
+
+.staff-admin-specialty {
+  left: 708px;
+  top: 2792px;
+  width: 445px;
+  height: 100px;
+}
+
+/* 変更: お知らせは通常フローの縦並びへ移行。PCの先頭位置・カード寸法・間隔を維持。
+   mainの固定高さは撤去し、記事の増減に合わせてフッターも移動する。
+   カードの高さはPCの見た目を保つため残し、スマートフォン版でheight:autoにする。 */
+.news-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 57px 0 100px;
+}
+
+.news-title {
+  flex-shrink: 0;
+  margin-bottom: 7px;
+}
+
+.news-main > .notice-card {
+  flex-shrink: 0;
+  width: var(--content-width);
+  height: 203px;
+}
+
+/* 変更: 診療内容も通常フローへ移行。個別カードのtopとmainの固定高さを撤去。
+   2pxの左寄せは元のPC座標（left:268px）に合わせるための補正。
+   スマートフォン版ではカードのheight、left、本文の固定高さを解除する。 */
+.services-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 57px 0 100px;
+}
+
+.services-title {
+  flex-shrink: 0;
+  margin-bottom: 28px;
+}
+
+.services-intro {
+  flex-shrink: 0;
+  width: var(--content-width);
+  height: 70px;
+  margin-bottom: 53px;
+}
+
+.services-main > .service-card {
+  position: relative;
+  left: -2px;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.services-main > .service-card:last-child {
+  margin-bottom: 0;
+}

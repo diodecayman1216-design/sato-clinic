@@ -1,3 +1,5 @@
+/* 変更: 共通の装飾・文字・部品のスタイル。PCの座標と固定寸法はdesktop.cssに分離。
+   スマートフォン版は両CSSの後にメディアクエリを追加し、通常のカスケードで上書きする。 */
 /* Typography: Figma uses M PLUS Rounded 1c (Regular 400 / Medium 500)
    and a separate family, Rounded Mplus 1c Bold, for bold text.
    The local face takes precedence when the EXACT Figma font is installed.
@@ -13,7 +15,10 @@
   font-display: swap;
 }
 
+/* 変更: PC基準幅を集約。スマートフォン版ではdesktop.cssの最小幅制限も解除する。 */
 :root {
+  --desktop-width: 1440px;
+  --content-width: 900px;
   --font-body: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   --font-bold: "Figma Rounded Mplus Bold", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
 }
@@ -47,8 +52,7 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   font-synthesis: none;
-  min-width: 1440px;
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -62,64 +66,46 @@ a:focus-visible {
 }
 
 .site-frame {
-  width: 1440px;
   margin: 0 auto;
-  background: white
+  background: white;
+  width: 100%;
+  max-width: var(--desktop-width);
 }
 
 .site-header {
-  height: 300px;
-  background: var(--green);
   position: relative;
-  color: white
+  background: var(--green);
+  color: white;
 }
 
 .header-logo {
-  position: absolute;
-  left: 30px;
-  top: 41px;
-  width: 440px;
-  height: 132px;
-  object-fit: contain
+  object-fit: contain;
 }
 
 .header-phone {
-  position: absolute;
-  right: 54px;
-  top: 55px;
   color: #fff;
   font-size: 48px;
   font-weight: 700;
   font-family: var(--font-bold);
   line-height: 1;
-  letter-spacing: .3px
+  letter-spacing: .3px;
 }
 
 .header-address {
-  position: absolute;
-  right: 54px;
-  top: 132px;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: .35px;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .site-nav {
-  position: absolute;
-  left: 58px;
-  top: 206px;
   display: flex;
   gap: 14px;
-  height: 56px
 }
 
 .site-nav a {
   background: var(--light);
   color: #1e2922;
-  width: 210px;
-  min-width: 210px;
-  height: 56px;
   border-radius: 100px;
   display: flex;
   align-items: center;
@@ -127,12 +113,7 @@ a:focus-visible {
   font-size: 24px;
   font-weight: 500;
   white-space: nowrap;
-  transition: filter .15s
-}
-
-.site-nav a:last-child {
-  width: 200px;
-  min-width: 200px
+  transition: filter .15s;
 }
 
 .site-nav a:hover,.more-link:hover {
@@ -141,19 +122,16 @@ a:focus-visible {
 
 .page-main {
   position: relative;
-  width: 1440px;
   background: #fff;
-  overflow: hidden
+  overflow: hidden;
+  width: 100%;
 }
 
 .block {
-  position: absolute;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .title-rule {
-  height: 70px;
-  width: 300px;
   border-top: 3px solid var(--ink);
   border-bottom: 3px solid var(--ink);
   display: flex;
@@ -164,7 +142,7 @@ a:focus-visible {
   font-weight: 700;
   font-family: var(--font-bold);
   letter-spacing: .3px;
-  margin: 0
+  margin: 0;
 }
 
 .copy {
@@ -191,7 +169,6 @@ a:focus-visible {
 }
 
 .sub-title {
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,7 +176,7 @@ a:focus-visible {
   font-size: 24px;
   font-weight: 700;
   font-family: var(--font-bold);
-  margin: 0
+  margin: 0;
 }
 
 .sub-title:after {
@@ -289,7 +266,6 @@ a:focus-visible {
   font-size: 24px;
   font-weight: 700;
   font-family: var(--font-bold);
-  height: 70px
 }
 
 .news-row:nth-of-type(even) {
@@ -322,12 +298,9 @@ a:focus-visible {
 }
 
 .service-card {
-  height: 310px;
-  width: 900px;
   border-radius: 30px;
   background: var(--light);
   padding: 42px 50px;
-  position: absolute
 }
 
 .service-card .service-head {
@@ -357,7 +330,6 @@ a:focus-visible {
   align-items: center;
   padding: 26px 35px;
   gap: 42px;
-  height: 158px
 }
 
 .qa-group h3 {
@@ -407,14 +379,12 @@ a:focus-visible {
 .about-policy {
   border-radius: 27px;
   background: var(--soft);
-  width: 900px;
-  height: 187px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 35px
+  padding-top: 35px;
 }
 
 .about-policy strong {
@@ -478,9 +448,8 @@ a:focus-visible {
   border-collapse: separate;
   border-spacing: 3px 4px;
   table-layout: fixed;
-  width: 900px;
   font-size: 24px;
-  color: #25352b
+  color: #25352b;
 }
 
 .hours-table th,.hours-table td {
@@ -570,11 +539,9 @@ a:focus-visible {
 
 .access-map {
   display: block;
-  width: 820px;
-  height: 690px;
   object-fit: cover;
   border-radius: 30px;
-  margin: 30px auto 0
+  margin: 30px auto 0;
 }
 
 .access-caption {
@@ -612,9 +579,8 @@ a:focus-visible {
   font-family: var(--font-bold);
   line-height: 1.6;
   display: grid;
-  grid-template-columns: 200px 300px;
   gap: 16px 25px;
-  align-items: center
+  align-items: center;
 }
 
 .contact-lines .field {
@@ -624,43 +590,29 @@ a:focus-visible {
 }
 
 .site-footer {
-  height: 320px;
-  background: var(--green);
   position: relative;
-  color: white
+  background: var(--green);
+  color: white;
 }
 
 .footer-logo {
-  position: absolute;
-  left: 33px;
-  top: 37px;
-  width: 443px;
-  height: 133px;
-  object-fit: contain
+  object-fit: contain;
 }
 
 .footer-address {
-  position: absolute;
-  left: 51px;
-  top: 181px;
   font-size: 23px;
   font-weight: 500;
-  letter-spacing: .2px
+  letter-spacing: .2px;
 }
 
 .footer-tel {
-  position: absolute;
-  left: 910px;
-  top: 67px;
-  width: 480px;
-  height: 141px;
   border-radius: 32px;
   background: var(--light);
   color: var(--ink);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .footer-tel span {
@@ -678,10 +630,7 @@ a:focus-visible {
 }
 
 .copyright {
-  position: absolute;
-  right: 50px;
-  bottom: 25px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .sr-only {
@@ -698,19 +647,10 @@ a:focus-visible {
   margin: 16px 0 0 53px
 }
 
-.location-card .access-label {
-  position: absolute;
-  left: 30px;
-  top: 25px
-}
-
 .location-card .access-intro {
-  position: absolute;
-  left: 80px;
-  top: 104px;
   margin: 0;
   font-size: 24px;
-  line-height: 36px
+  line-height: 36px;
 }
 
 .location-card .access-intro p {
@@ -718,39 +658,74 @@ a:focus-visible {
 }
 
 .location-card .access-map {
-  position: absolute;
-  left: 40px;
-  top: 315px;
-  width: 820px;
-  height: 450px;
   margin: 0;
   object-fit: cover;
   object-position: top;
-  border-radius: 30px
+  border-radius: 30px;
 }
 
 .location-card .access-caption {
-  position: absolute;
-  left: 75px;
-  top: 794px;
   margin: 0;
   font-size: 18px;
-  line-height: 27px
+  line-height: 27px;
 }
 
 /* Notice identifying the training project as fictional; limited to the footer. */
-.site-footer {
-  height: 360px
-}
 
 .training-disclaimer {
-  position: absolute;
-  left: 51px;
-  bottom: 58px;
-  width: calc(100% - 102px);
   margin: 0;
   font-size: 16px;
   line-height: 1.55;
   font-weight: 400;
-  color: #fff
+  color: #fff;
+}
+
+/* 変更: HTML内の装飾指定を名前付きクラスに移動。画像や文章は変更していない。 */
+.home-hero-title {
+  font-size: 44px;
+  color: var(--green);
+  margin: 0;
+  font-weight: 700;
+  font-family: var(--font-bold);
+}
+
+.home-director-role {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  font-family: var(--font-bold);
+}
+
+.home-director-name {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--font-bold);
+}
+
+.home-staff-card-body {
+  padding: 23px 25px;
+}
+
+.home-staff-card-image {
+  border-radius: 25px;
+  object-fit: cover;
+  display: block;
+}
+
+.home-staff-card-role {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 18px 0 12px;
+}
+
+.home-staff-card-name {
+  text-align: center;
+  font-size: 29px;
+  margin: 0;
+}
+
+.home-email {
+  font-size: 21px;
 }
