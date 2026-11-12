@@ -1,9 +1,5 @@
-/* 変更: 1440pxのPCデザインを保つための配置・固定寸法をこのファイルに集約。
-   現段階では狭い画面でも従来のPC表示を維持するため、メディアクエリで囲んでいない。
-   スマートフォン版のFigma確定後は、このファイルの後に画面幅別のCSSを読み込む。
-   bodyのmin-width、.blockのposition、各ページのleft/top/width/heightを上書きし、
-   ページごとの親要素にFlexbox/Gridを設定して通常フローへ移行する。
-   .sr-onlyや見出しの装飾線の絶対配置は、レスポンシブでも必要なためstyle.cssに残す。 */
+/* 1440px以上は従来のPC用寸法・配置を維持。
+   ファイル末尾のメディアクエリで固定配置を解除し、768px以下をスマートフォン用に調整する。 */
 
 /* 変更: 共通部品からPC依存の寸法・座標だけを分離。装飾はstyle.cssで管理する。 */
 body {
@@ -1020,4 +1016,511 @@ body {
 
 .services-main > .service-card:last-child {
   margin-bottom: 0;
+}
+
+/* 固定幅PC版が収まらない画面では通常フローへ移行。
+   高さは内容に追従させ、文字の拡大時にも次の要素と重ならないようにする。
+   overflow-x:hiddenで隠さず、各要素そのものを利用可能幅に収める。 */
+@media (max-width: 1439px) {
+  body {
+    min-width: 0;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .site-frame {
+    max-width: 100%;
+  }
+
+  .site-header, .site-footer {
+    height: auto;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header-logo, .header-phone, .header-address, .site-nav,
+  .footer-logo, .footer-address, .footer-tel, .training-disclaimer, .copyright {
+    position: static;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .site-header > a, .site-footer > a {
+    max-width: 100%;
+  }
+
+  .header-logo, .footer-logo {
+    display: block;
+    width: 360px;
+  }
+
+  .header-phone {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+
+  .header-address, .footer-address {
+    font-size: 18px;
+    line-height: 1.8;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 900px;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .site-nav a, .site-nav a:last-child {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+    padding: 10px 8px;
+    font-size: 20px;
+    line-height: 1.5;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .page-main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    max-width: 964px;
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+    overflow: visible;
+  }
+
+  .page-main > .block,
+  .page-main > .title-rule,
+  .news-main > .notice-card,
+  .services-main > .services-intro,
+  .services-main > .service-card {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .page-main > .title-rule {
+    align-self: center;
+    width: min(100%, 340px);
+    min-height: 64px;
+    padding: 12px 8px;
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 32px 0 8px;
+  }
+
+  .page-main > .title-rule:first-of-type {
+    margin-top: 0;
+  }
+
+  .page-main > .sub-title {
+    padding: 16px 0;
+    margin-top: 24px;
+    font-size: 24px;
+    line-height: 1.6;
+  }
+
+  .copy, .small-copy, .notice-card p, .service-card p,
+  .staff-words, .staff-meta, .hours-notes, .access-caption,
+  .location-card .access-caption, .end-faq-note {
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  .copy p {
+    margin-bottom: 16px;
+  }
+
+  .page-main img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-hero-image, .home-staff-card-image {
+    width: 100%;
+  }
+
+  .home-hero-title {
+    position: static;
+    font-size: 32px;
+    line-height: 1.6;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .home-tile, .qa-group {
+    padding: 24px;
+    gap: 24px;
+    min-height: 120px;
+  }
+
+  .home-tile h3, .qa-group h3, .service-card h3 {
+    font-size: 24px;
+    line-height: 1.6;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .news-row {
+    min-height: 64px;
+    padding: 18px 24px;
+    font-size: 21px;
+    line-height: 1.6;
+  }
+
+  .page-main > .more-link {
+    align-self: center;
+    width: min(100%, 270px);
+    min-height: 56px;
+    padding: 10px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .notice-card, .service-card, .qa-card, .access-panel {
+    padding: 28px;
+    border-radius: 24px;
+  }
+
+  .notice-card h3 {
+    font-size: 24px;
+    line-height: 1.6;
+  }
+
+  .service-card .service-head {
+    gap: 24px;
+  }
+
+  .service-card p {
+    margin-top: 24px;
+  }
+
+  .qa-group {
+    margin-top: 24px;
+  }
+
+  .qa-card .q, .qa-card .a {
+    gap: 12px;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .qa-card .q {
+    font-size: 20px;
+  }
+
+  .qa-card .qa-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .end-faq-note {
+    margin: 20px 0 0;
+  }
+
+  .about-policy {
+    padding: 24px 16px;
+  }
+
+  .about-policy strong {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .about-policy p {
+    margin: 20px 0 0;
+    font-size: 22px;
+    line-height: 1.7;
+  }
+
+  .staff-role {
+    font-size: 20px;
+  }
+
+  .staff-name {
+    font-size: 28px;
+  }
+
+  .page-main > .staff-nurse-name,
+  .page-main > .staff-lab-name,
+  .page-main > .staff-admin-name {
+    border-top: 1px solid var(--light);
+    padding-top: 32px;
+    margin-top: 24px;
+  }
+
+  .staff-nurse-name strong, .staff-lab-name strong, .staff-admin-name strong {
+    display: inline-block;
+  }
+
+  .staff-meta p {
+    margin: 0;
+  }
+
+  .page-main > .home-director-photo {
+    align-self: center;
+    max-width: 435px;
+  }
+
+  .page-main > .staff-nurse-photo,
+  .page-main > .staff-lab-photo,
+  .page-main > .staff-admin-photo {
+    align-self: center;
+    max-width: 420px;
+  }
+
+  .home-staff-card-body {
+    padding: 24px;
+    max-width: 480px;
+    margin: auto;
+  }
+
+  /* テーブルの列構造・全データを維持。時間帯のみ自然に折り返す。 */
+  .hours-table {
+    border-spacing: 2px 4px;
+    font-size: 21px;
+  }
+
+  .hours-table th:first-child, .hours-table td:first-child {
+    width: 36%;
+    padding: 8px 4px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .hours-table th, .hours-table td {
+    height: 72px;
+  }
+
+  .hours-table thead th {
+    height: 56px;
+  }
+
+  .location-card .access-label, .location-card .access-intro,
+  .location-card .access-map, .location-card .access-caption {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 24px 0 0;
+  }
+
+  .location-card .access-label {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .access-label {
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 48px;
+    padding: 8px 24px;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .access-intro, .location-card .access-intro {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .access-caption {
+    margin: 24px 0 0;
+  }
+
+  .access-list {
+    margin: 24px 0 0;
+    padding-left: 1.4em;
+    font-size: 21px;
+    line-height: 1.8;
+  }
+
+  .contact-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .contact-body img {
+    width: 100%;
+  }
+
+  .contact-lines {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 16px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+  }
+
+  .home-email {
+    font-size: 18px;
+  }
+
+  .footer-tel {
+    width: min(100%, 440px);
+    padding: 16px 12px;
+    min-height: 104px;
+  }
+
+  .footer-tel span {
+    font-size: 24px;
+  }
+
+  .footer-tel strong {
+    font-size: clamp(24px, 7.5vw, 40px);
+  }
+
+  .training-disclaimer {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  [id] {
+    scroll-margin-top: 24px;
+  }
+}
+
+/* スマートフォン：375 / 390 / 430pxを含む768px以下。 */
+@media (max-width: 768px) {
+  .site-header, .site-footer {
+    padding: 24px 16px;
+    gap: 12px;
+  }
+
+  .header-logo, .footer-logo {
+    width: 300px;
+  }
+
+  .header-phone {
+    font-size: 32px;
+  }
+
+  .header-address, .footer-address {
+    font-size: 17px;
+  }
+
+  .site-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-nav a, .site-nav a:last-child {
+    font-size: 18px;
+    min-height: 52px;
+  }
+
+  .page-main {
+    padding: 32px 16px 48px;
+    gap: 20px;
+  }
+
+  .page-main > .title-rule {
+    max-width: 300px;
+    font-size: 26px;
+    min-height: 60px;
+  }
+
+  .home-hero-title {
+    font-size: 26px;
+  }
+
+  .home-tile, .qa-group {
+    gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .icon-tile {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
+    border-radius: 18px;
+  }
+
+  .home-tile h3, .qa-group h3, .service-card h3 {
+    font-size: 22px;
+  }
+
+  .notice-card, .service-card, .qa-card, .access-panel {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .notice-card h3 {
+    font-size: 22px;
+  }
+
+  .service-card .service-head {
+    gap: 16px;
+  }
+
+  .news-row {
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 20px;
+  }
+
+  .hours-table {
+    font-size: 16px;
+    line-height: 1.7;
+    border-spacing: 1px 3px;
+  }
+
+  .hours-table th:first-child, .hours-table td:first-child {
+    padding: 10px 2px;
+  }
+
+  .hours-table th:first-child {
+    border-top-left-radius: 16px;
+  }
+
+  .hours-table th:last-child {
+    border-top-right-radius: 16px;
+  }
+
+  .hours-table tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+  }
+
+  .hours-table tr:last-child td:last-child {
+    border-bottom-right-radius: 16px;
+  }
+
+  .contact-lines {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    font-size: 20px;
+  }
+
+  .contact-lines .field {
+    margin-top: 12px;
+    text-align: left;
+  }
+
+  .home-email {
+    font-size: 18px;
+  }
 }
