@@ -1725,3 +1725,92 @@ body {
     position: relative;
   }
 }
+
+/* 変更: アンカーの余白は固定ヘッダーの実測値に統一する。
+   スマホは展開時でなく、スクロール後の小さなヘッダー高を使う。 */
+html {
+  scroll-padding-top: calc(var(--anchor-header-height, 182px) + 12px);
+}
+[id] {
+  scroll-margin-top: 0;
+}
+.header-menu { display: none; }
+.header-slot { display: contents; }
+
+@media (max-width: 768px) {
+  html { --anchor-header-height: 70px; }
+  /* 変更: 切替前の高さを保持し、固定化・メニュー開閉で本文を動かさない。 */
+  .header-slot {
+    display: block;
+    height: var(--expanded-header-height);
+  }
+  .site-header {
+    position: relative;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .header-info {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    min-height: 54px;
+  }
+  .header-info > a { flex: 0 1 180px; }
+  .header-info .header-logo { width: 100%; height: auto; }
+  .header-contact { transform: none; margin-left: auto; }
+  .header-address, .header-phone > span { display: none; }
+  .header-phone {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+  }
+  .header-phone-icon { width: 26px; height: 26px; }
+  .site-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .site-nav a, .site-nav a:last-child {
+    min-height: 52px;
+    padding: 4px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .site-header.is-compact {
+    position: fixed;
+    inset: 0 0 auto;
+    width: 100%;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 15%);
+  }
+  .is-compact .header-contact { display: none; }
+  .is-compact .header-menu:not([hidden]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-left: auto;
+    min-height: 48px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--light);
+    color: var(--ink);
+    font: 500 16px/1.4 var(--font-body);
+    cursor: pointer;
+  }
+  .header-menu:focus-visible {
+    outline: 4px solid #d0aa43;
+    outline-offset: 2px;
+  }
+  .is-compact .site-nav { display: none; }
+  .is-compact.is-menu-open .site-nav {
+    display: grid;
+    max-height: calc(100dvh - var(--anchor-header-height) - 24px);
+    overflow-y: auto;
+  }
+}
+
+/* 変更: アンカー対象の20pxスライドが移動先の計算をずらさないようにする。
+   フェード表示は維持し、見出しの最終位置を固定ヘッダーの下にそろえる。 */
+.page-main [id].scroll-reveal {
+  transform: none;
+}

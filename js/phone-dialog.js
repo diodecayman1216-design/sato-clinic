@@ -5,6 +5,7 @@
   if (!triggers.length || typeof HTMLDialogElement === 'undefined' ||
       typeof HTMLDialogElement.prototype.showModal !== 'function') return;
 
+  const mobileHeader = window.matchMedia("(max-width: 768px)");
   const phoneNumber = '00-0000-0000';
   const dialog = document.createElement('dialog');
   dialog.id = 'phone-dialog';
@@ -45,11 +46,24 @@
   let backdropPressed = false;
 
   triggers.forEach((trigger) => {
-    trigger.setAttribute('aria-haspopup', 'dialog');
-    trigger.setAttribute('aria-controls', dialog.id);
-    trigger.setAttribute('aria-label', 'お電話でのお問い合わせ ' + phoneNumber);
+    // 変更: スマホのヘッダーは直接発信するため、読み上げも発信リンクに合わせる。
+    const updateLabel = () => {
+      const directCall = trigger.matches(".header-phone") && mobileHeader.matches;
+      if (directCall) {
+        trigger.removeAttribute("aria-haspopup");
+        trigger.removeAttribute("aria-controls");
+      } else {
+        trigger.setAttribute("aria-haspopup", "dialog");
+        trigger.setAttribute("aria-controls", dialog.id);
+      }
+      trigger.setAttribute("aria-label", (directCall ? "電話をかける " : "お電話でのお問い合わせ ") + phoneNumber);
+    };
+    updateLabel();
+    mobileHeader.addEventListener("change", updateLabel);
     trigger.addEventListener('click', (event) => {
       if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      // 変更: スマホのヘッダー電話アイコンは直接tel:を開く。
+      if (trigger.matches(".header-phone") && mobileHeader.matches) return;
       event.preventDefault();
       if (dialog.open) return;
       opener = trigger;

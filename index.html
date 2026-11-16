@@ -23,7 +23,7 @@
         <!-- 変更: ロゴと連絡先は横並びを基本に、収まらない幅では折り返して重なりを防ぐ。 -->
         <div class="header-info">
           <a href="index.html" aria-label="佐藤医院 トップページ"><img src="./assets/logo.png" alt="" class="header-logo" alt="佐藤医院 Sato Clinic"></a>
-          <!-- 変更: 連絡先を一塊に保ち、スマホでは電話番号・郵便番号・住所を3行にして高さを整える。 -->
+          <!-- 変更: PCでは電話と住所をまとめ、スマホでは電話アイコンのみ表示する。 -->
           <div class="header-contact">
             <!-- 変更: 白い角丸の電話ボタン全体から電話をかけられるようにする。 -->
             <a class="header-phone" href="tel:0000000000" aria-label="電話をかける 00-0000-0000">
@@ -32,13 +32,16 @@
               </svg>
               <span>00-0000-0000</span>
             </a>
-            <!-- 変更: 郵便番号と住所を分け、スマホだけ改行する。PCでは従来の全角スペースで横に並べる。 -->
-            <!-- 変更: スマホではこの2行の左端をそろえ、上の電話番号は右揃えを維持する。 -->
+            <!-- 変更: PCの郵便番号と住所は従来の全角スペースで横に並べ、スマホでは非表示にする。 -->
             <div class="header-address"><span class="header-postal">〒123-4567</span><span class="header-address-separator">　</span><span class="header-street">東京都台東区上野0-0-0</span></div>
           </div>
+          <!-- 変更: スクロール後だけ表示し、既存の6項目を開閉する。 -->
+          <button class="header-menu" type="button" aria-controls="main-navigation" aria-expanded="false" hidden>
+            <span aria-hidden="true">☰</span> メニュー
+          </button>
         </div>
-        <!-- 変更: スマホのナビは文字サイズを保って3列×2行にし、400px未満では2列に切り替える。 -->
-        <nav class="site-nav" aria-label="メインナビゲーション">
+        <!-- 変更: 768px以下は3列×2行。スクロール後は共通スクリプトで開閉する。 -->
+        <nav id="main-navigation" class="site-nav" aria-label="メインナビゲーション">
           <a href="news.html">お知らせ</a>
           <a href="services.html">診療内容</a>
           <a href="about.html">当院について</a>
@@ -403,5 +406,7 @@
     <script src="./js/scroll-reveal.js"></script>
     <!-- 変更: 電話ボタンの見た目を保ち、ヘッダーとフッター共通の電話ポップアップを追加する。 -->
     <script src="./js/phone-dialog.js"></script>
+    <!-- 変更: 全ページ共通のスマホヘッダー切替とアンカー位置補正。 -->
+    <script src="./js/header.js"></script>
   </body>
 </html>
