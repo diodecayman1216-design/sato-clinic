@@ -119,14 +119,36 @@ a:focus-visible {
   object-fit: contain;
 }
 
+/* 変更: 白地と濃い緑の電話ボタン。番号の折り返しを防ぎ、既存の可変文字サイズに追従する。 */
 .header-phone {
-  color: #fff;
-  /* 変更: ロゴの縮小に合わせ、電話番号を読みやすい範囲で小さくする。 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35em;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: #fff;
+  color: #2f602b;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 12%);
+  white-space: nowrap;
+  overflow-wrap: normal;
   font-size: 36px;
   font-weight: 700;
   font-family: var(--font-bold);
   line-height: 1;
   letter-spacing: .3px;
+}
+
+/* 変更: 受話器は番号と同じ色で、文字サイズに合わせて伸縮する。 */
+.header-phone-icon {
+  width: .8em;
+  height: .8em;
+  flex-shrink: 0;
+}
+
+.header-phone:focus-visible {
+  outline-color: #2f602b;
 }
 
 .header-address {

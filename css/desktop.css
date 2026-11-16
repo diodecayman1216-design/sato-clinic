@@ -1588,8 +1588,10 @@ body {
 
   .header-phone {
     line-height: 1.1;
-    /* 変更: 段の幅をそろえても、電話番号は右端にそろえる。 */
-    text-align: right;
+    /* 変更: スマホでは余白と角丸を縮め、番号1行とタップ領域を確保する。 */
+    padding: 6px 10px;
+    border-radius: 10px;
+    align-self: flex-end;
   }
 
   .header-address {
