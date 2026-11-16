@@ -998,7 +998,7 @@ body {
 
 /* 変更: お知らせは通常フローの縦並びへ移行。PCの先頭位置・カード寸法・間隔を維持。
    mainの固定高さは撤去し、記事の増減に合わせてフッターも移動する。
-   カードの高さはPCの見た目を保つため残し、スマートフォン版でheight:autoにする。 */
+   変更: 更新日追加分に合わせて高さを可変にし、本文のはみ出しを防ぐ。 */
 .news-main {
   display: flex;
   flex-direction: column;
@@ -1015,7 +1015,9 @@ body {
 .news-main > .notice-card {
   flex-shrink: 0;
   width: var(--content-width);
-  height: 203px;
+  /* 変更: 元の高さを下限にし、更新日と本文の量に応じて伸ばす。 */
+  min-height: 203px;
+  height: auto;
 }
 
 /* 変更: 診療内容も通常フローへ移行。個別カードのtopとmainの固定高さを撤去。
@@ -1624,6 +1626,15 @@ body {
     padding: 16px;
     font-size: 20px;
     border-radius: 20px;
+    /* 変更: スマートフォンは日付を次の行へ置き、タイトルとの重なりを防ぐ。 */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* 変更: 文字拡大や狭い画面でも日付を枠内で折り返せるようにする。 */
+  .news-row > .news-updated {
+    max-width: 100%;
   }
 
   .hours-table {

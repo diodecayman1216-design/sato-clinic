@@ -308,6 +308,31 @@ a:focus-visible {
   background: var(--light)
 }
 
+/* 変更: タイトルを左、更新日を右へ配置し、タイトルは折り返し可能にする。 */
+.news-row {
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.news-row-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* 変更: 更新日はタイトルより小さく、読みやすい18pxと濃い文字色を使う。 */
+.news-updated {
+  color: var(--sub);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.news-row > .news-updated {
+  flex-shrink: 0;
+}
+
 .news-row:nth-of-type(odd) {
   background: var(--soft)
 }
@@ -318,13 +343,42 @@ a:focus-visible {
   padding: 30px 40px
 }
 
+/* 変更: 記事詳細だけタイトルと更新日を左右に配置し、既存の区切り線・下余白を見出し枠へ移す。 */
+.notice-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #314035;
+}
+
+.notice-heading > .news-updated {
+  flex-shrink: 0;
+  text-align: right;
+}
+
 .notice-card h3 {
+  /* 変更: タイトルの区切り線を親へ移し、長いタイトルも枠内で折り返す。 */
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 24px;
   font-weight: 500;
   margin: 0;
-  padding: 0 0 12px;
-  border-bottom: 2px solid #314035;
   line-height: 1.45
+}
+
+/* 変更: スマートフォンの記事詳細は上下配置にし、日付とタイトルの重なりを防ぐ。 */
+@media (max-width: 768px) {
+  .notice-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notice-heading > .news-updated {
+    max-width: 100%;
+    text-align: left;
+  }
 }
 
 .notice-card p {
