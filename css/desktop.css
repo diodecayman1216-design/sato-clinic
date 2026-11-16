@@ -97,26 +97,41 @@ body {
   height: 360px;
 }
 
-.footer-logo {
+/* 変更: ロゴ・住所の一塊と電話番号は、折り返さない横並びにする。 */
+.footer-contact {
   position: absolute;
   left: 33px;
+  right: 50px;
   top: 37px;
-  width: 443px;
-  height: 133px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-identity {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 443px;
+  min-width: 0;
+}
+
+.footer-logo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footer-address {
-  position: absolute;
-  left: 51px;
-  top: 181px;
+  margin: 11px 0 0 18px;
+  white-space: nowrap;
 }
 
 .footer-tel {
-  position: absolute;
-  left: 910px;
-  top: 67px;
-  width: 480px;
+  flex: 0 0 480px;
   height: 141px;
+  white-space: nowrap;
 }
 
 .copyright {
@@ -1071,8 +1086,16 @@ body {
     max-width: 100%;
   }
 
-  .site-footer > a {
-    max-width: 100%;
+  /* 変更: 狭い画面でも連絡先を横並びに保ち、画面幅に応じて縮める。 */
+  .footer-contact {
+    position: static;
+    width: 100%;
+    gap: clamp(8px, 2vw, 24px);
+    text-align: left;
+  }
+
+  .footer-identity {
+    flex: 0 0 52%;
   }
 
   /* 変更: 狭い画面でもロゴと連絡先を横並びにし、サイズと余白を調整する。 */
@@ -1090,8 +1113,8 @@ body {
   }
 
   .footer-logo {
-    display: block;
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
   }
 
   .header-phone {
@@ -1105,10 +1128,12 @@ body {
   }
 
   .footer-address {
-    font-size: 18px;
+    /* 変更: 住所はロゴの下で改行せず、幅に合わせて文字を縮める。 */
+    margin: 8px 0 0;
+    font-size: clamp(8px, 1.8vw, 18px);
+    letter-spacing: 0;
     line-height: 1.8;
-    white-space: normal;
-    overflow-wrap: anywhere;
+    white-space: nowrap;
   }
 
   .site-nav {
@@ -1434,17 +1459,19 @@ body {
   }
 
   .footer-tel {
-    width: min(100%, 440px);
-    padding: 16px 12px;
-    min-height: 104px;
+    /* 変更: 電話番号をロゴ・住所の隣に収め、改行を防ぐ。 */
+    flex: 0 1 440px;
+    min-width: 0;
+    padding: clamp(8px, 1.5vw, 16px) clamp(4px, 1vw, 12px);
+    min-height: clamp(64px, 12vw, 104px);
   }
 
   .footer-tel span {
-    font-size: 24px;
+    font-size: clamp(12px, 2.5vw, 24px);
   }
 
   .footer-tel strong {
-    font-size: clamp(24px, 7.5vw, 40px);
+    font-size: clamp(14px, 3.7vw, 40px);
   }
 
   .training-disclaimer {
@@ -1512,14 +1539,7 @@ body {
     gap: 8px;
   }
 
-  .footer-logo {
-    width: 300px;
-  }
-
-  /* 変更: ヘッダーは共通の横並び・連絡先の縦配置を維持する。 */
-  .footer-address {
-    font-size: 17px;
-  }
+  /* 変更: フッターは上記の可変サイズを使い、スマートフォンも横並びを維持する。 */
 
   .site-nav {
     /* 変更: スマートフォンでは文字サイズを保ち、読みやすさのため2列に切り替える。 */
