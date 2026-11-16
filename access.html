@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>診療時間・所在地 | 佐藤医院</title>
+    <meta name="description" content="佐藤医院の診療時間・所在地、交通案内、診療科目、お問い合わせ先をご案内します。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 変更: PC用レイアウトを共通装飾の後に読み込み、将来の画面幅別指定を追加しやすくする。 -->
+    <link rel="stylesheet" href="./css/desktop.css">
+  </head>
+  <body>
+    <div class="site-frame">
+      <header class="site-header">
+        <!-- 変更: ロゴと連絡先は横並びを基本に、収まらない幅では折り返して重なりを防ぐ。 -->
+        <div class="header-info">
+          <a href="index.html" aria-label="佐藤医院 トップページ"><img src="./assets/logo.png" class="header-logo" alt="佐藤医院 Sato Clinic"></a>
+          <!-- 変更: PCでは電話と住所をまとめ、スマホでは電話アイコンのみ表示する。 -->
+          <div class="header-contact">
+            <!-- 変更: 白い角丸の電話ボタン全体から電話をかけられるようにする。 -->
+            <a class="header-phone" href="tel:0000000000" aria-label="電話をかける 00-0000-0000">
+              <svg class="header-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/>
+              </svg>
+              <span>00-0000-0000</span>
+            </a>
+            <!-- 変更: PCの郵便番号と住所は従来の全角スペースで横に並べ、スマホでは非表示にする。 -->
+            <div class="header-address"><span class="header-postal">〒123-4567</span><span class="header-address-separator">　</span><span class="header-street">東京都台東区上野0-0-0</span></div>
+          </div>
+          <!-- 変更: スクロール後だけ表示し、既存の6項目を開閉する。 -->
+          <button class="header-menu" type="button" aria-controls="main-navigation" aria-expanded="false" hidden>
+            <span aria-hidden="true">☰</span> メニュー
+          </button>
+        </div>
+        <!-- 変更: 768px以下は3列×2行。スクロール後は共通スクリプトで開閉する。 -->
+        <nav id="main-navigation" class="site-nav" aria-label="メインナビゲーション">
+          <a href="news.html">お知らせ</a>
+          <a href="services.html">診療内容</a>
+          <a href="about.html">当院について</a>
+          <a href="staff.html">スタッフ紹介</a>
+          <a href="faq.html">よくあるご質問</a>
+          <a href="access.html" aria-current="page"><span>診療時間<wbr>・所在地</span></a>
+        </nav>
+      </header>
+      <main class="page-main access-main access-layout">
+        <h1 class="title-rule">診療時間・所在地</h1>
+        <p class="copy access-page-intro">佐藤医院では、患者様のご都合に合わせた診療を提供できるよう、柔軟な診療時間を設けております。以下をご確認のうえ、ご来院の際にご利用ください。</p>
+        <section class="access-hours-group" aria-labelledby="access-hours-heading">
+          <h2 class="access-label" id="access-hours-heading">診療時間</h2>
+          <table class="hours-table">
+            <caption class="sr-only">診療時間</caption>
+            <thead>
+              <tr>
+                <th>時間帯</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+                <th>日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>午前 9:00〜12:00</td>
+                <td>●</td>
+                <td>●</td>
+                <td>●</td>
+                <td>／</td>
+                <td>●</td>
+                <td>●</td>
+                <td>／</td>
+              </tr>
+              <tr>
+                <td>午後 13:00〜18:00</td>
+                <td>●</td>
+                <td>●</td>
+                <td>●</td>
+                <td>／</td>
+                <td>●</td>
+                <td>／</td>
+                <td>／</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="hours-notes">
+            <p>●＝診療　／＝休診</p>
+            <ul>
+              <li>受付時間：午前 8:00〜11:00 ／ 午後 12:00〜17:00</li>
+              <li>休診日：木曜・土曜午後・日曜</li>
+              <li>※祝祭日も診療を行っておりますが、休診日もございますので、事前にご確認ください。</li>
+            </ul>
+          </div>
+        </section>
+        <section
+          class="access-panel panel-soft"
+        >
+          <h2 class="access-label">診療科目</h2>
+          <ul class="access-list">
+            <li>内科</li>
+            <li>循環器科</li>
+            <li>呼吸器科</li>
+            <li>予防医療・健康診断</li>
+            <li>生活習慣病（高血圧、糖尿病等）の治療・管理</li>
+          </ul>
+          <p class="access-caption">その他、ご不明点があればお電話またはメールでお問い合わせください。</p>
+        </section>
+        <section
+          class="access-panel"
+        >
+          <h2 class="access-label">所在地</h2>
+          <div class="access-intro">
+            <p>〒123-4567　東京都台東区上野0-0-0</p>
+            <p>最寄駅：JR上野駅より徒歩5分<br>当院専用の無料駐車場 10台分あり</p>
+          </div>
+          <!-- 変更：静止画像assets/map.pngを、提供された公式URLのGoogleマップに置換。
+               拡大・縮小、移動、Googleマップ本体への移動ができるようにするため。
+               仮表示はJR上野駅周辺とし、架空の医院の所在地やマーカーは設定しない。
+               既存のaccess-mapクラスで位置と角丸を維持し、元の画像ファイルも残す。 -->
+          <iframe
+            class="access-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.771466651248!2d139.77473880651127!3d35.71286369311565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e9e93d3060b%3A0x6c89b36d7b4f9244!2z5LiK6YeO6aeF!5e0!3m2!1sja!2sjp!4v1794796729285!5m2!1sja!2sjp"
+            title="JR上野駅周辺のGoogleマップ（仮表示・佐藤医院の所在地ではありません）"
+            width="820"
+            height="450"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+          <p class="access-caption">地図はJR上野駅周辺の参考表示です。架空の佐藤医院の所在地を示すものではありません。</p>
+          <p class="access-caption">ご来院の際は、交通状況にご注意ください。最寄駅から徒歩5分の便利な立地です。</p>
+        </section>
+        <section class="access-panel" >
+          <h2 class="access-label">お問い合わせ</h2>
+          <div class="contact-body">
+            <img src="./assets/courtyard.png" alt="" class="" >
+            <div class="contact-lines">
+              <span class="field">電話番号</span>
+              <span>00-0000-0000</span>
+              <span class="field">FAX</span>
+              <span>00-0000-0000</span>
+              <span class="field">メール</span>
+              <a class="home-email" href="mailto:info@sato-clinic-test.jp">info@sato-clinic-test.jp</a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <!-- 変更: ロゴと住所を縦にまとめた一塊と電話番号を、全画面幅で横一列に配置する。 -->
+        <div class="footer-contact">
+          <div class="footer-identity">
+            <a href="index.html"><img src="./assets/logo.png" class="footer-logo" alt="佐藤医院 Sato Clinic"></a>
+            <div class="footer-address">〒123-4567　東京都台東区上野0-0-0</div>
+          </div>
+          <!-- 変更: 「お電話」を受話器アイコンに変更。既存のクラスとリンクを残し、共通ポップアップを引き続き使う。 -->
+          <a class="footer-tel" href="tel:0000000000" aria-label="電話番号 00-0000-0000">
+            <svg class="footer-phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/>
+            </svg>
+            <strong>00-0000-0000</strong>
+          </a>
+        </div>
+        <p class="training-disclaimer">本サイトは職業訓練の学習用に制作した架空のサンプルサイトです。掲載している医院・人物・連絡先・所在地はすべて架空であり、実在のものとは関係ありません。</p>
+        <small class="copyright">©　佐藤医院</small>
+      </footer>
+    </div>
+    <!-- 変更: 一覧・記事詳細で共通の日付設定を読み込む。 -->
+    <script src="./js/news-dates.js"></script>
+    <!-- 変更: 全ページ共通で、画面内に入った表示ブロックを一度だけフェードインさせる。 -->
+    <script src="./js/scroll-reveal.js"></script>
+    <!-- 変更: 電話ボタンの見た目を保ち、ヘッダーとフッター共通の電話ポップアップを追加する。 -->
+    <script src="./js/phone-dialog.js"></script>
+    <!-- 変更: 全ページ共通のスマホヘッダー切替とアンカー位置補正。 -->
+    <script src="./js/header.js"></script>
+  </body>
+</html>

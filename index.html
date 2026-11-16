@@ -47,7 +47,7 @@
           <a href="about.html">当院について</a>
           <a href="staff.html">スタッフ紹介</a>
           <a href="faq.html">よくあるご質問</a>
-          <a href="index.html#access">アクセス</a>
+          <a href="access.html"><span>診療時間<wbr>・所在地</span></a>
         </nav>
       </header>
       <main class="page-main home-main">
@@ -287,10 +287,10 @@
           </a>
         </div>
         <a class="block more-link home-faq-more" href="faq.html">もっと見る →</a>
-        <h2 class="block title-rule home-access-title" >アクセス</h2>
+        <section class="home-access-summary" id="access" aria-labelledby="home-access-heading">
+          <h2 class="title-rule home-access-title" id="home-access-heading">アクセス</h2>
         <section
           class="block access-panel location-card home-location"
-          id="access"
         >
           <span class="access-label">所在地</span>
           <div class="access-intro">
@@ -313,34 +313,10 @@
           ></iframe>
           <p class="access-caption">ご来院の際は、交通状況にご注意ください。最寄駅から徒歩5分の便利な立地です。</p>
         </section>
-        <section
-          class="block access-panel panel-soft home-subjects"
-        >
-          <span class="access-label">診療科目</span>
-          <ul class="access-list">
-            <li>内科</li>
-            <li>循環器科</li>
-            <li>呼吸器科</li>
-            <li>予防医療・健康診断</li>
-            <li>生活習慣病（高血圧、糖尿病等）の治療・管理</li>
-          </ul>
-          <p class="access-caption">その他、ご不明点があればお電話またはメールでお問い合わせください。</p>
-        </section>
-        <section class="block access-panel home-contact" >
-          <span class="access-label">お問い合わせ</span>
-          <div class="contact-body">
-            <img src="./assets/courtyard.png" alt="" class="" >
-            <div class="contact-lines">
-              <span class="field">電話番号</span>
-              <span>00-0000-0000</span>
-              <span class="field">FAX</span>
-              <span>00-0000-0000</span>
-              <span class="field">メール</span>
-              <span class="home-email">info@sato-clinic-test.jp</span>
-            </div>
-          </div>
-        </section>
-        <table class="block hours-table home-access-hours-table" >
+          <section class="access-panel home-access-hours-card" aria-labelledby="home-access-hours-heading">
+            <h3 class="access-label" id="home-access-hours-heading">診療時間</h3>
+        <table class="hours-table">
+          <caption class="sr-only">診療時間</caption>
           <thead>
             <tr>
               <th>時間帯</th>
@@ -379,7 +355,10 @@
             </tr>
           </tbody>
         </table>
-        <div class="block hours-notes home-access-hours-notes" >●＝診療　／＝休診<br>※祝祭日も診療を行っておりますが、休診日もございますので、事前にご確認ください。<br><span class="break"></span>・受付時間：午前　8:00〜11:00　／　午後　12:00〜17:00<br>・休診日：木曜・土曜午後・日曜</div>
+        <div class="hours-notes" >●＝診療　／＝休診<br>※祝祭日も診療を行っておりますが、休診日もございますので、事前にご確認ください。<br><span class="break"></span>・受付時間：午前　8:00〜11:00　／　午後　12:00〜17:00<br>・休診日：木曜・土曜午後・日曜</div>
+          </section>
+          <a class="more-link home-access-more" href="access.html">もっと見る →</a>
+        </section>
       </main>
       <footer class="site-footer">
         <!-- 変更: ロゴと住所を縦にまとめた一塊と電話番号を、全画面幅で横一列に配置する。 -->

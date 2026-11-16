@@ -491,9 +491,9 @@ body {
 
 /* 変更: トップページのセクション間に40pxずつ余白を追加。
    各セクション内の配置を保つため、後続のtopには追加分を累積する。
-   8か所の余白追加（合計320px）に合わせ、mainの高さも拡張する。 */
+   mainの高さは末尾のアクセスセクションの内容に追従させる。 */
 .home-main {
-  height: 9538px;
+  height: auto;
 }
 
 .home-hero {
@@ -795,48 +795,6 @@ body {
   top: 7052px;
   width: 246px;
   height: 58px;
-}
-
-.home-access-title {
-  left: 570px;
-  top: 7241px;
-  width: 300px;
-  height: 70px;
-}
-
-.home-location {
-  left: 270px;
-  top: 7354px;
-  width: var(--content-width);
-  height: 869px;
-}
-
-.home-subjects {
-  left: 270px;
-  top: 8253px;
-  width: var(--content-width);
-  height: 392px;
-}
-
-.home-contact {
-  left: 270px;
-  top: 8675px;
-  width: var(--content-width);
-  height: 355px;
-}
-
-.home-access-hours-table {
-  left: 270px;
-  top: 9090px;
-  width: var(--content-width);
-  height: 226px;
-}
-
-.home-access-hours-notes {
-  left: 440px;
-  top: 9332px;
-  width: 700px;
-  height: 130px;
 }
 
 /* staff: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
@@ -1284,7 +1242,9 @@ body {
     line-height: 1.6;
   }
 
-  .page-main > .more-link {
+  .page-main > .more-link,
+  .home-access-summary > .more-link {
+    height: auto;
     align-self: center;
     width: min(100%, 270px);
     min-height: 56px;
@@ -1813,4 +1773,114 @@ html {
    フェード表示は維持し、見出しの最終位置を固定ヘッダーの下にそろえる。 */
 .page-main [id].scroll-reveal {
   transform: none;
+}
+
+/* アクセスより前のTOPの配置を維持し、末尾だけを通常フローにする。 */
+.home-access-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: var(--content-width);
+  margin: 7241px auto 0;
+  padding-bottom: 76px;
+}
+
+/* HEADの所在地カードの背景・角丸・内部座標をそのまま利用する。 */
+.home-access-summary > .home-access-title {
+  align-self: center;
+  width: 300px;
+  margin-bottom: 13px;
+}
+
+.home-access-summary > .home-location {
+  position: relative;
+  width: 100%;
+  height: 869px;
+}
+
+.home-access-hours-card .access-label {
+  margin: 0;
+}
+
+.home-access-hours-card .hours-table {
+  width: 100%;
+  margin: 24px 0 12px;
+}
+
+.home-access-hours-card .hours-notes {
+  height: auto;
+}
+
+.home-access-summary > .home-access-more {
+  align-self: flex-end;
+}
+
+.page-main.access-main {
+  width: 100%;
+  max-width: 964px;
+  height: auto;
+  margin: 0 auto;
+  padding: 57px 32px 100px;
+  overflow: visible;
+}
+
+/* 長い項目名も既存の文字サイズでボタン内に収める。 */
+.site-nav a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1439px) {
+  .home-access-summary {
+    width: 100%;
+    margin: 56px 0 0;
+    padding-bottom: 0;
+  }
+
+  .home-access-summary > .home-access-title {
+    width: min(100%, 340px);
+    height: auto;
+    min-height: 64px;
+    padding: 12px 8px;
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .home-access-summary > .home-location {
+    height: auto;
+  }
+
+  .home-access-summary > .home-access-more {
+    align-self: center;
+  }
+
+  .page-main.access-main {
+    padding: 40px 32px 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-access-summary {
+    gap: 20px;
+  }
+
+  .home-access-summary > .home-access-title {
+    max-width: 300px;
+    min-height: 60px;
+    font-size: 26px;
+  }
+
+  .page-main.access-main {
+    padding: 32px 16px 48px;
+  }
+
+  .access-layout {
+    gap: 20px;
+  }
+
+  .access-layout > .title-rule {
+    font-size: 26px;
+    min-height: 60px;
+  }
 }

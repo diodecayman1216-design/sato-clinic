@@ -1023,3 +1023,83 @@ html.phone-dialog-open,
     transition: none;
   }
 }
+
+/* 診療時間・所在地：既存の色・部品を共用し、本文量に応じて配置する。 */
+.access-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.access-layout > .title-rule {
+  align-self: center;
+  width: min(100%, 380px);
+  height: auto;
+  min-height: 70px;
+  padding: 10px 8px;
+}
+
+.access-layout .access-label {
+  margin: 0;
+}
+
+.access-layout .access-intro {
+  margin: 24px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.access-layout .access-intro p {
+  margin: 0 0 20px;
+}
+
+.access-layout .access-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.access-layout .access-map {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 820 / 450;
+  margin: 24px 0 0;
+}
+
+.access-layout > .access-map {
+  margin-top: 0;
+}
+
+.access-hours-group {
+  min-width: 0;
+}
+
+.access-layout .hours-table {
+  width: 100%;
+  margin: 24px 0 12px;
+}
+
+.access-layout .hours-notes {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.access-layout > .more-link {
+  align-self: flex-end;
+}
+
+/* 支給原稿の導入文・注意書き。診療時間・所在地ページだけに適用する。 */
+.access-main > .access-page-intro {
+  line-height: 1.8;
+}
+
+.access-main .hours-notes p {
+  margin: 0;
+}
+
+.access-main .hours-notes ul {
+  margin: 16px 0 0;
+  padding-left: 1.4em;
+}
+
+.access-main .home-email {
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
