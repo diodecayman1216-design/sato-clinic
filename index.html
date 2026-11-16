@@ -17,7 +17,7 @@
     <!-- 変更: トップページのセクション間隔をdesktop.cssのhome各項目と画面幅別の.home-main指定で拡張。 -->
     <link rel="stylesheet" href="./css/desktop.css">
   </head>
-  <body>
+  <body class="home-page">
     <div class="site-frame">
       <header class="site-header">
         <!-- 変更: ロゴと連絡先は横並びを基本に、収まらない幅では折り返して重なりを防ぐ。 -->
@@ -315,6 +315,7 @@
         </section>
           <section class="access-panel home-access-hours-card" aria-labelledby="home-access-hours-heading">
             <h3 class="access-label" id="home-access-hours-heading">診療時間</h3>
+            <div class="home-access-table-scroll" role="region" aria-label="診療時間表（横にスクロールできます）" tabindex="0">
         <table class="hours-table">
           <caption class="sr-only">診療時間</caption>
           <thead>
@@ -355,6 +356,7 @@
             </tr>
           </tbody>
         </table>
+            </div>
         <div class="hours-notes" >●＝診療　／＝休診<br>※祝祭日も診療を行っておりますが、休診日もございますので、事前にご確認ください。<br><span class="break"></span>・受付時間：午前　8:00〜11:00　／　午後　12:00〜17:00<br>・休診日：木曜・土曜午後・日曜</div>
           </section>
           <a class="more-link home-access-more" href="access.html">もっと見る →</a>

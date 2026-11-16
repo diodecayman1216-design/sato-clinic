@@ -1775,8 +1775,15 @@ html {
   transform: none;
 }
 
+/* TOPだけ固定最小幅を解除。縦スクロールバーの幅も表示可能幅に含めない。 */
+body.home-page {
+  min-width: 0;
+}
+
 /* アクセスより前のTOPの配置を維持し、末尾だけを通常フローにする。 */
 .home-access-summary {
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -1802,9 +1809,40 @@ html {
   margin: 0;
 }
 
+/* 共通の表幅900pxに依存せず、カードの内側の幅で計算する。 */
+.home-access-hours-card {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.home-access-table-scroll {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 24px 0 12px;
+  overflow-x: auto;
+}
+
+.home-access-table-scroll:focus-visible {
+  outline: 4px solid #d0aa43;
+  outline-offset: 3px;
+}
+
 .home-access-hours-card .hours-table {
   width: 100%;
-  margin: 24px 0 12px;
+  min-width: 360px;
+  table-layout: fixed;
+  margin: 0;
+}
+
+/* 時間帯36%、残りを8曜日へ均等配分。長い時間表記はセル内で折り返す。 */
+.home-access-hours-card .hours-table th:first-child,
+.home-access-hours-card .hours-table td:first-child {
+  width: 36%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .home-access-hours-card .hours-notes {
