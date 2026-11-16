@@ -324,6 +324,12 @@ a:focus-visible {
 
 /* 変更: 更新日はタイトルより小さく、読みやすい18pxと濃い文字色を使う。 */
 .news-updated {
+  /* 変更: 日付全体が1行で収まる幅を基本にし、カードの内側の幅を上限にする。
+     幅が足りない場合だけ既存の折り返しを使い、文字サイズやカードの見た目を保つ。 */
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
   color: var(--sub);
   font-family: var(--font-body);
   font-size: 18px;
