@@ -30,6 +30,10 @@ body {
   /* 変更: ナビを通常フローに戻し、情報行の直下に44pxの高さで配置する。 */
   position: static;
   height: 44px;
+  /* 変更: 6ボタンを均等幅の横一列にし、ヘッダーの幅を使って配置する。 */
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: 100%;
 }
 
 .site-nav a {
@@ -37,6 +41,8 @@ body {
   min-width: 0;
   height: 44px;
   font-size: 20px;
+  /* 変更: 狭い幅で文字が折り返しても、ボタン内の中央揃えを維持する。 */
+  text-align: center;
 }
 
 .site-nav a:last-child {
@@ -1093,11 +1099,12 @@ body {
 
   .site-nav {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* 変更: PC・タブレットは6列を維持し、幅制限と間隔を調整して一行に収める。 */
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     width: 100%;
-    max-width: 900px;
+    max-width: 100%;
     /* 変更: ナビの行間と上余白を縮め、固定領域を小さくする。 */
-    gap: 8px;
+    gap: 6px;
     margin-top: 0;
   }
 
@@ -1106,7 +1113,7 @@ body {
     width: 100%;
     height: auto;
     min-height: 44px;
-    padding: 6px 8px;
+    padding: 6px 4px;
     font-size: 18px;
     line-height: 1.5;
     white-space: normal;
@@ -1448,6 +1455,7 @@ body {
   }
 
   .site-nav {
+    /* 変更: スマートフォンでは文字サイズを保ち、読みやすさのため2列に切り替える。 */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
   }
