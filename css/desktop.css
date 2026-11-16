@@ -94,15 +94,18 @@ body {
 }
 
 .site-footer {
-  height: 360px;
+  /* 変更: 高さ360pxの固定を解除し、内容に追従させる。上下20px・段間12pxで薄くする。 */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  gap: 12px;
 }
 
 /* 変更: ロゴ・住所の一塊と電話番号は、折り返さない横並びにする。 */
 .footer-contact {
-  position: absolute;
-  left: 33px;
-  right: 50px;
-  top: 37px;
+  /* 変更: 絶対配置を通常フローへ戻し、注意書きと重ならず高さが縮むようにする。 */
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -113,7 +116,8 @@ body {
 .footer-identity {
   display: flex;
   flex-direction: column;
-  flex: 0 1 443px;
+  /* 変更: ロゴの基準幅443→340pxで連絡先ブロックの高さを抑える。 */
+  flex: 0 1 340px;
   min-width: 0;
 }
 
@@ -124,20 +128,21 @@ body {
 }
 
 .footer-address {
-  margin: 11px 0 0 18px;
+  /* 変更: ロゴ下の余白11→6pxに縮め、住所は縦配置を維持する。 */
+  margin: 6px 0 0 14px;
   white-space: nowrap;
 }
 
 .footer-tel {
-  flex: 0 0 480px;
-  height: 141px;
+  /* 変更: 電話ボタンを幅480→380px・高さ141→104pxに縮める。 */
+  flex: 0 0 380px;
+  height: 104px;
   white-space: nowrap;
 }
 
 .copyright {
-  position: absolute;
-  right: 50px;
-  bottom: 25px;
+  /* 変更: コピーライトも通常フローに戻し、下部の固定余白をなくす。 */
+  align-self: flex-end;
 }
 
 .location-card .access-label {
@@ -167,10 +172,8 @@ body {
 }
 
 .training-disclaimer {
-  position: absolute;
-  left: 51px;
-  bottom: 58px;
-  width: calc(100% - 102px);
+  /* 変更: 注意書きを連絡先の直下へ配置し、文字拡大時もフッターの高さを追従させる。 */
+  width: 100%;
 }
 
 /* about: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
@@ -1078,6 +1081,12 @@ body {
     gap: 12px;
   }
 
+  /* 変更: 1439px以下のフッターは上下余白28→16px・段間16→8pxに縮める。 */
+  .site-footer {
+    padding: 16px 24px;
+    gap: 8px;
+  }
+
   .site-nav,
   .footer-logo, .footer-address, .footer-tel, .training-disclaimer, .copyright {
     position: static;
@@ -1114,7 +1123,8 @@ body {
 
   .footer-logo {
     width: 100%;
-    max-width: 360px;
+    /* 変更: 狭い画面のロゴ上限360→300pxで高さを抑える。 */
+    max-width: 300px;
   }
 
   .header-phone {
@@ -1129,7 +1139,7 @@ body {
 
   .footer-address {
     /* 変更: 住所はロゴの下で改行せず、幅に合わせて文字を縮める。 */
-    margin: 8px 0 0;
+    margin: 6px 0 0;
     font-size: clamp(8px, 1.8vw, 18px);
     letter-spacing: 0;
     line-height: 1.8;
@@ -1468,8 +1478,9 @@ body {
     /* 変更: 電話番号をロゴ・住所の隣に収め、改行を防ぐ。 */
     flex: 0 1 440px;
     min-width: 0;
-    padding: clamp(8px, 1.5vw, 16px) clamp(4px, 1vw, 12px);
-    min-height: clamp(64px, 12vw, 104px);
+    /* 変更: ボタンの上下余白と最小高さを縮め、横並びの行を薄くする。 */
+    padding: clamp(6px, 1vw, 12px) clamp(4px, 1vw, 12px);
+    min-height: clamp(56px, 10vw, 88px);
   }
 
   .footer-tel span {
@@ -1481,9 +1492,10 @@ body {
   }
 
   .training-disclaimer {
-    margin: 8px 0;
+    /* 変更: 注意書きの上下余白をなくし、行間1.8→1.6で縦幅を抑える。 */
+    margin: 0;
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.6;
     text-align: left;
   }
 
@@ -1542,6 +1554,12 @@ body {
   /* 変更: スマートフォンではヘッダーの上下余白と行間をさらに縮める。 */
   .site-header {
     padding: 10px 16px;
+    gap: 8px;
+  }
+
+  /* 変更: スマートフォンのフッターは上下余白24→12px・段間12→8pxに縮める。 */
+  .site-footer {
+    padding: 12px 16px;
     gap: 8px;
   }
 

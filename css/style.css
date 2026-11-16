@@ -640,7 +640,9 @@ a:focus-visible {
 }
 
 .footer-address {
-  font-size: 23px;
+  /* 変更: 住所を23→18px・行間1.5にし、ロゴ下の高さを抑える。 */
+  font-size: 18px;
+  line-height: 1.5;
   font-weight: 500;
   letter-spacing: .2px;
 }
@@ -656,14 +658,16 @@ a:focus-visible {
 }
 
 .footer-tel span {
-  font-size: 30px;
+  /* 変更: 電話ボタンの高さ縮小に合わせ、見出しを30→24pxにする。 */
+  font-size: 24px;
   font-weight: 700;
   font-family: var(--font-bold);
   line-height: 1.2
 }
 
 .footer-tel strong {
-  font-size: 48px;
+  /* 変更: 電話番号を48→40pxにし、小さくしたボタンに収める。 */
+  font-size: 40px;
   line-height: 1.3;
   font-weight: 700;
   font-family: var(--font-bold)
