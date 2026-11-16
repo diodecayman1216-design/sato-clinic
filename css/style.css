@@ -103,7 +103,8 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 29px;
+  /* 変更: 電話番号と住所の間隔を縮め、固定ヘッダーの高さを抑える。 */
+  gap: 8px;
 }
 
 .header-contact > * {
@@ -118,7 +119,8 @@ a:focus-visible {
 
 .header-phone {
   color: #fff;
-  font-size: 48px;
+  /* 変更: ロゴの縮小に合わせ、電話番号を読みやすい範囲で小さくする。 */
+  font-size: 36px;
   font-weight: 700;
   font-family: var(--font-bold);
   line-height: 1;
@@ -126,7 +128,7 @@ a:focus-visible {
 }
 
 .header-address {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: .35px;
   white-space: nowrap;

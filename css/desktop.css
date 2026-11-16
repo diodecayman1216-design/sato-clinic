@@ -7,35 +7,40 @@ body {
 }
 
 .site-header {
-  height: 300px;
+  /* 変更: 高さ300pxの固定を解除し、内容と小さめの余白で薄いヘッダーにする。 */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 30px;
 }
 
-/* 変更: ロゴと連絡先を横並び領域で配置し、PCのロゴ寸法と左右余白を維持する。 */
+/* 変更: 外側に余白を集約し、ロゴと連絡先の横並び領域の上下余白をなくす。 */
 .header-info {
-  padding: 41px 54px 0 30px;
+  padding: 0;
 }
 
 .header-logo {
-  width: 440px;
-  height: 132px;
+  /* 変更: 縦横比を保ってロゴを縮め、情報行の高さを132pxから90pxに抑える。 */
+  width: 300px;
+  height: 90px;
 }
 
 .site-nav {
-  position: absolute;
-  left: 58px;
-  top: 206px;
-  height: 56px;
+  /* 変更: ナビを通常フローに戻し、情報行の直下に44pxの高さで配置する。 */
+  position: static;
+  height: 44px;
 }
 
 .site-nav a {
-  width: 210px;
-  min-width: 210px;
-  height: 56px;
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  font-size: 20px;
 }
 
 .site-nav a:last-child {
-  width: 200px;
-  min-width: 200px;
+  min-width: 0;
 }
 
 .block {
@@ -1032,6 +1037,12 @@ body {
     text-align: center;
   }
 
+  /* 変更: フッターの余白は維持し、固定ヘッダーだけ上下の余白を半分にする。 */
+  .site-header {
+    padding: 14px 24px;
+    gap: 12px;
+  }
+
   .site-nav,
   .footer-logo, .footer-address, .footer-tel, .training-disclaimer, .copyright {
     position: static;
@@ -1050,11 +1061,11 @@ body {
   }
 
   .header-contact {
-    gap: 12px;
+    gap: 6px;
   }
 
   .header-logo {
-    width: clamp(100px, 30vw, 360px);
+    width: clamp(100px, 24vw, 260px);
     height: auto;
   }
 
@@ -1085,17 +1096,18 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
     max-width: 900px;
-    gap: 12px;
-    margin-top: 8px;
+    /* 変更: ナビの行間と上余白を縮め、固定領域を小さくする。 */
+    gap: 8px;
+    margin-top: 0;
   }
 
   .site-nav a, .site-nav a:last-child {
     min-width: 0;
     width: 100%;
     height: auto;
-    min-height: 52px;
-    padding: 10px 8px;
-    font-size: 20px;
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 18px;
     line-height: 1.5;
     white-space: normal;
     overflow-wrap: anywhere;
@@ -1420,6 +1432,12 @@ body {
     gap: 12px;
   }
 
+  /* 変更: スマートフォンではヘッダーの上下余白と行間をさらに縮める。 */
+  .site-header {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
   .footer-logo {
     width: 300px;
   }
@@ -1431,12 +1449,12 @@ body {
 
   .site-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 6px;
   }
 
   .site-nav a, .site-nav a:last-child {
     font-size: 18px;
-    min-height: 52px;
+    min-height: 44px;
   }
 
   .page-main {
