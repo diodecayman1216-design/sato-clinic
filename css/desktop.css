@@ -1405,6 +1405,12 @@ body {
     margin: 24px 0 0;
   }
 
+  /* 変更：iframeは画像のように元画像の縦横比を持たないため、狭い画面では
+     元のmap.png（921×775px）と同じ比率で高さを決め、従来の表示領域を維持する。 */
+  .location-card iframe.access-map {
+    aspect-ratio: 921 / 775;
+  }
+
   .location-card .access-label {
     width: auto;
     margin-top: 0;

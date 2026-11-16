@@ -575,6 +575,10 @@ a:focus-visible {
 
 .access-map {
   display: block;
+  /* 変更：画像からiframeに置き換えても余分な枠線が付かず、親要素の幅に収まるようにする。
+     既存の角丸・余白と、desktop.cssで指定する位置・サイズは引き継ぐ。 */
+  border: 0;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 30px;
   margin: 30px auto 0;

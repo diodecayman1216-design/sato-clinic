@@ -269,7 +269,20 @@
             <p>〒123-4567<br>東京都台東区上野0-0-0</p>
             <p>最寄駅：JR上野駅より徒歩5分<br>当院専用の無料駐車場 10台分あり</p>
           </div>
-          <img src="./assets/map.png" alt="" class="access-map" alt="JR上野駅周辺の地図">
+          <!-- 変更：静止画像assets/map.pngを、提供された公式URLのGoogleマップに置換。
+               拡大・縮小、移動、Googleマップ本体への移動ができるようにするため。
+               仮表示はJR上野駅周辺とし、架空の医院の所在地やマーカーは設定しない。
+               既存のaccess-mapクラスで位置と角丸を維持し、元の画像ファイルも残す。 -->
+          <iframe
+            class="access-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.771466651248!2d139.77473880651127!3d35.71286369311565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e9e93d3060b%3A0x6c89b36d7b4f9244!2z5LiK6YeO6aeF!5e0!3m2!1sja!2sjp!4v1794796729285!5m2!1sja!2sjp"
+            title="JR上野駅周辺のGoogleマップ（仮表示・佐藤医院の所在地ではありません）"
+            width="820"
+            height="450"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
           <p class="access-caption">ご来院の際は、交通状況にご注意ください。最寄駅から徒歩5分の便利な立地です。</p>
         </section>
         <section
