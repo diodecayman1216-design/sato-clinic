@@ -22,9 +22,12 @@
         <!-- 変更: ロゴと連絡先ブロックは常に横並び。電話番号と住所はブロック内で上下に配置する。 -->
         <div class="header-info">
           <a href="index.html" aria-label="佐藤医院 トップページ"><img src="./assets/logo.png" alt="" class="header-logo" alt="佐藤医院 Sato Clinic"></a>
+          <!-- 変更: 連絡先を一塊に保ち、スマホでは電話番号・郵便番号・住所を3行にして高さを整える。 -->
           <div class="header-contact">
             <div class="header-phone">00-0000-0000</div>
-            <div class="header-address">〒123-4567　東京都台東区上野0-0-0</div>
+            <!-- 変更: 郵便番号と住所を分け、スマホだけ改行する。PCでは従来の全角スペースで横に並べる。 -->
+            <!-- 変更: スマホではこの2行の左端をそろえ、上の電話番号は右揃えを維持する。 -->
+            <div class="header-address"><span class="header-postal">〒123-4567</span><span class="header-address-separator">　</span><span class="header-street">東京都台東区上野0-0-0</span></div>
           </div>
         </div>
         <!-- 変更: ナビは共通CSSで横一列の6列に配置し、スマートフォンでは読みやすい2列に切り替える。 -->

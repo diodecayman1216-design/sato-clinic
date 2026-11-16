@@ -1559,6 +1559,55 @@ body {
     gap: 8px;
   }
 
+  /* 変更: スマホだけロゴと連絡先の間に12〜20pxの余白を取り、窮屈さを減らす。 */
+  .header-info {
+    gap: clamp(12px, 3vw, 20px);
+  }
+
+  /* 変更: ロゴは幅200px（高さ約60px）を基準にし、3行の連絡先と高さをそろえる。
+     狭い画面ではロゴ側だけ縮め、連絡先との重なりを防ぐ。 */
+  .header-info > a {
+    flex: 0 1 200px;
+    /* 変更: ロゴが基準幅より小さくなれるようにし、連絡先との重なりを防ぐ。 */
+    min-width: 0;
+  }
+
+  .header-info .header-logo {
+    /* 変更: 画像の縦横比を保ち、リンクの幅に合わせてロゴだけ表示サイズを調整する。 */
+    width: 100%;
+    height: auto;
+  }
+
+  /* 変更: 連絡先の各段を同じ幅にそろえ、電話番号と郵便番号の間を2pxから6pxに広げる。
+     文字サイズとロゴの基準幅は維持し、高さの厳密な一致より読みやすさを優先する。 */
+  .header-contact {
+    flex: 0 0 auto;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .header-phone {
+    line-height: 1.1;
+    /* 変更: 段の幅をそろえても、電話番号は右端にそろえる。 */
+    text-align: right;
+  }
+
+  .header-address {
+    /* 変更: 郵便番号と住所の左端をそろえ、行間を広げて読みやすくする。 */
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  /* 変更: スマホだけ郵便番号を2行目、住所を3行目にし、情報ブロックの横幅を抑える。 */
+  .header-postal,
+  .header-street {
+    display: block;
+  }
+
+  .header-address-separator {
+    display: none;
+  }
+
   /* 変更: スマートフォンのフッターは上下余白24→12px・段間12→8pxに縮める。 */
   .site-footer {
     padding: 12px 16px;
