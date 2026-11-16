@@ -564,6 +564,13 @@ body {
   height: 58px;
 }
 
+/* 変更: カードをまとめる枠自体は表示せず、1440px以上の既存の2列配置と
+   スマートフォンの1列表示をそのまま保つ。 */
+.home-services-cards,
+.home-staff-cards {
+  display: contents;
+}
+
 .home-services-title {
   left: 570px;
   top: 2231px;
@@ -728,6 +735,11 @@ body {
   top: 6381px;
   width: 300px;
   height: 70px;
+}
+
+/* 変更: まとめる要素自体は枠を作らず、既存のPC配置とスマートフォンの縦並びを保つ。 */
+.home-faq-categories {
+  display: contents;
 }
 
 .home-faq-consultation {
@@ -1136,6 +1148,11 @@ body {
   }
 
   .page-main > .block,
+  /* 変更: 新しい枠の中でも、各カードに既存の画面幅に合わせた配置を適用する。 */
+  .home-services-cards > .block,
+  .home-staff-cards > .block,
+  /* 変更: ボタンをまとめた後も、狭い画面用の位置・幅・高さの調整を各ボタンに適用する。 */
+  .home-faq-categories > .block,
   .page-main > .title-rule,
   .news-main > .notice-card,
   .services-main > .services-intro,
@@ -1439,6 +1456,46 @@ body {
 
   [id] {
     scroll-margin-top: 24px;
+  }
+}
+
+/* 変更: PCで縦並びになっていた幅でも、診療内容・スタッフをそれぞれ2列にする。
+   768px以下には適用せず、既存のスマートフォン表示を維持する。 */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .home-services-cards,
+  .home-staff-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  /* 変更: 高さは内容に合わせて伸ばし、同じ行は高い方にそろえて文字や画像の切れを防ぐ。 */
+  .home-services-cards > .home-tile {
+    min-height: 200px;
+  }
+}
+
+/* 変更: 769〜1439pxでもFAQボタンを2列にする。1440px以上の既存の2列配置と、
+   768px以下の1列表示は維持し、他のセクションには適用しない。 */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .home-faq-categories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 24px;
+  }
+
+  /* 変更: 固定位置とサイズを解除して均等な列幅に収め、高さは全ボタンでそろえる。
+     長い見出しは既存の文字サイズのまま折り返せるようにする。 */
+  .home-faq-categories > .home-tile {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 200px;
+    margin: 0;
   }
 }
 

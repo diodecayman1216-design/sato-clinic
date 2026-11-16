@@ -117,34 +117,37 @@
         <div class="block copy home-services-intro" >
           <p>当院では、地域の皆様の健康を支えるため、幅広い内科診療を行っております。日常的な体調管理から、各種の検査や治療に至るまで、どんなお悩みもお気軽にご相談ください。</p>
         </div>
-        <a
-          class="block home-tile panel home-service-1"
-          href="services.html#service-1"
-        >
-          <span class="icon-tile"><img src="./assets/icon-medical.png" alt="" class="" ></span>
-          <h3>一般内科診療</h3>
-        </a>
-        <a
-          class="block home-tile panel home-service-2"
-          href="services.html#service-2"
-        >
-          <span class="icon-tile"><img src="./assets/icon-lifestyle.png" alt="" class="" ></span>
-          <h3>生活習慣病の診断・治療</h3>
-        </a>
-        <a
-          class="block home-tile panel home-service-3"
-          href="services.html#service-3"
-        >
-          <span class="icon-tile"><img src="./assets/icon-stomach.png" alt="" class="" ></span>
-          <h3>消化器系の診療</h3>
-        </a>
-        <a
-          class="block home-tile panel home-service-4"
-          href="services.html#service-4"
-        >
-          <span class="icon-tile"><img src="./assets/icon-lungs.png" alt="" class="" ></span>
-          <h3>呼吸器系の診療</h3>
-        </a>
+        <!-- 変更: 診療内容の4枚を専用の枠にまとめ、PCでこのセクションだけを2列に並べる。 -->
+        <div class="home-services-cards">
+          <a
+            class="block home-tile panel home-service-1"
+            href="services.html#service-1"
+          >
+            <span class="icon-tile"><img src="./assets/icon-medical.png" alt="" class="" ></span>
+            <h3>一般内科診療</h3>
+          </a>
+          <a
+            class="block home-tile panel home-service-2"
+            href="services.html#service-2"
+          >
+            <span class="icon-tile"><img src="./assets/icon-lifestyle.png" alt="" class="" ></span>
+            <h3>生活習慣病の診断・治療</h3>
+          </a>
+          <a
+            class="block home-tile panel home-service-3"
+            href="services.html#service-3"
+          >
+            <span class="icon-tile"><img src="./assets/icon-stomach.png" alt="" class="" ></span>
+            <h3>消化器系の診療</h3>
+          </a>
+          <a
+            class="block home-tile panel home-service-4"
+            href="services.html#service-4"
+          >
+            <span class="icon-tile"><img src="./assets/icon-lungs.png" alt="" class="" ></span>
+            <h3>呼吸器系の診療</h3>
+          </a>
+        </div>
         <a class="block more-link home-services-more" href="services.html">もっと見る →</a>
         <h2 class="block title-rule home-about-title" >当院について</h2>
         <img
@@ -179,76 +182,82 @@
         <div class="block copy home-staff-intro" >
           <p>地域の皆様に安心してご来院いただけるよう、スタッフ一同、誠心誠意対応いたします。それぞれの専門性と温かさを活かし、皆様の健康を支えるパートナーとしてお力になれるよう努めてまいります。</p>
         </div>
-        <a class="block panel home-doctor-card" href="staff.html">
-          <div class="home-staff-card-body">
-            <img class="home-staff-card-image"
-              src="./assets/figma-home-staff-doctor.png"
-              alt="院長 佐藤 太郎"
-            >
-            <p class="home-staff-card-role">院長</p>
-            <h3 class="home-staff-card-name">佐藤 太郎</h3>
-          </div>
-        </a>
-        <a class="block panel home-nurse-card" href="staff.html">
-          <div class="home-staff-card-body">
-            <img class="home-staff-card-image"
-              src="./assets/figma-home-staff-nurse.png"
-              alt="看護師長 鈴木 真理"
-            >
-            <p class="home-staff-card-role">看護師長</p>
-            <h3 class="home-staff-card-name">鈴木 真理</h3>
-          </div>
-        </a>
-        <a class="block panel home-lab-card" href="staff.html">
-          <div class="home-staff-card-body">
-            <img class="home-staff-card-image"
-              src="./assets/figma-home-staff-lab.png"
-              alt="臨床検査技師 高橋 由美"
-            >
-            <p class="home-staff-card-role">臨床検査技師</p>
-            <h3 class="home-staff-card-name">高橋 由美</h3>
-          </div>
-        </a>
-        <a class="block panel home-admin-card" href="staff.html">
-          <div class="home-staff-card-body">
-            <img class="home-staff-card-image"
-              src="./assets/figma-home-staff-admin.png"
-              alt="医療事務 山本 花"
-            >
-            <p class="home-staff-card-role">医療事務</p>
-            <h3 class="home-staff-card-name">山本 花</h3>
-          </div>
-        </a>
+        <!-- 変更: スタッフの4枚を別の枠にまとめ、診療内容と混ざらずPCで2列に並べる。 -->
+        <div class="home-staff-cards">
+          <a class="block panel home-doctor-card" href="staff.html">
+            <div class="home-staff-card-body">
+              <img class="home-staff-card-image"
+                src="./assets/figma-home-staff-doctor.png"
+                alt="院長 佐藤 太郎"
+              >
+              <p class="home-staff-card-role">院長</p>
+              <h3 class="home-staff-card-name">佐藤 太郎</h3>
+            </div>
+          </a>
+          <a class="block panel home-nurse-card" href="staff.html">
+            <div class="home-staff-card-body">
+              <img class="home-staff-card-image"
+                src="./assets/figma-home-staff-nurse.png"
+                alt="看護師長 鈴木 真理"
+              >
+              <p class="home-staff-card-role">看護師長</p>
+              <h3 class="home-staff-card-name">鈴木 真理</h3>
+            </div>
+          </a>
+          <a class="block panel home-lab-card" href="staff.html">
+            <div class="home-staff-card-body">
+              <img class="home-staff-card-image"
+                src="./assets/figma-home-staff-lab.png"
+                alt="臨床検査技師 高橋 由美"
+              >
+              <p class="home-staff-card-role">臨床検査技師</p>
+              <h3 class="home-staff-card-name">高橋 由美</h3>
+            </div>
+          </a>
+          <a class="block panel home-admin-card" href="staff.html">
+            <div class="home-staff-card-body">
+              <img class="home-staff-card-image"
+                src="./assets/figma-home-staff-admin.png"
+                alt="医療事務 山本 花"
+              >
+              <p class="home-staff-card-role">医療事務</p>
+              <h3 class="home-staff-card-name">山本 花</h3>
+            </div>
+          </a>
+        </div>
         <a class="block more-link home-staff-more" href="staff.html">もっと見る →</a>
         <h2 class="block title-rule home-faq-title" >よくあるご質問</h2>
-        <a
-          class="block home-tile panel home-faq-consultation"
-          href="faq.html#consultation"
-        >
-          <span class="icon-tile"><img src="./assets/icon-faq-medical.png" alt="" class="" ></span>
-          <h3>診療について</h3>
-        </a>
-        <a
-          class="block home-tile panel home-faq-vaccination"
-          href="faq.html#vaccination"
-        >
-          <span class="icon-tile"><img src="./assets/icon-checkup.png" alt="" class="" ></span>
-          <h3>予防接種・健康診断について</h3>
-        </a>
-        <a
-          class="block home-tile panel home-faq-payments"
-          href="faq.html#payments"
-        >
-          <span class="icon-tile"><img src="./assets/icon-payment.png" alt="" class="" ></span>
-          <h3>お支払いについて</h3>
-        </a>
-        <a
-          class="block home-tile panel home-faq-other"
-          href="faq.html#other"
-        >
-          <span class="icon-tile"><img src="./assets/icon-question.png" alt="" class="" ></span>
-          <h3>その他</h3>
-        </a>
+        <!-- 変更: 4つのボタンをまとめ、PCで左から順に2列に並べる。スマートフォンでは従来の1列を維持する。 -->
+        <div class="home-faq-categories">
+          <a
+            class="block home-tile panel home-faq-consultation"
+            href="faq.html#consultation"
+          >
+            <span class="icon-tile"><img src="./assets/icon-faq-medical.png" alt="" class="" ></span>
+            <h3>診療について</h3>
+          </a>
+          <a
+            class="block home-tile panel home-faq-vaccination"
+            href="faq.html#vaccination"
+          >
+            <span class="icon-tile"><img src="./assets/icon-checkup.png" alt="" class="" ></span>
+            <h3>予防接種・健康診断について</h3>
+          </a>
+          <a
+            class="block home-tile panel home-faq-payments"
+            href="faq.html#payments"
+          >
+            <span class="icon-tile"><img src="./assets/icon-payment.png" alt="" class="" ></span>
+            <h3>お支払いについて</h3>
+          </a>
+          <a
+            class="block home-tile panel home-faq-other"
+            href="faq.html#other"
+          >
+            <span class="icon-tile"><img src="./assets/icon-question.png" alt="" class="" ></span>
+            <h3>その他</h3>
+          </a>
+        </div>
         <a class="block more-link home-faq-more" href="faq.html">もっと見る →</a>
         <h2 class="block title-rule home-access-title" >アクセス</h2>
         <section
