@@ -102,12 +102,13 @@ body {
   gap: 12px;
 }
 
-/* 変更: ロゴ・住所の一塊と電話番号は、折り返さない横並びにする。 */
+/* 変更: ロゴ・住所と電話番号は横並び。収まらない幅ではボタンだけ次の行へ送り、
+   ロゴの大きさと、ヘッダーと共通のボタンサイズを両方維持する。 */
 .footer-contact {
   /* 変更: 絶対配置を通常フローへ戻し、注意書きと重ならず高さが縮むようにする。 */
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -134,10 +135,11 @@ body {
 }
 
 .footer-tel {
-  /* 変更: 電話ボタンを幅480→380px・高さ141→104pxに縮める。 */
-  flex: 0 0 380px;
-  height: 104px;
-  white-space: nowrap;
+  /* 変更: 専用の固定幅・高さをなくし、ヘッダーと同じ内容幅で表示する。
+     自動余白で、折り返した場合もフッターの右側にそろえる。 */
+  flex: 0 0 auto;
+  height: auto;
+  margin-inline-start: auto;
 }
 
 .copyright {
@@ -1129,7 +1131,9 @@ body {
     max-width: 300px;
   }
 
-  .header-phone {
+  /* 変更: 画面幅に応じた文字サイズ・行高も、ヘッダーとフッターで共用する。 */
+  .header-phone,
+  .footer-tel {
     font-size: clamp(20px, 3vw, 36px);
     line-height: 1.3;
   }
@@ -1476,23 +1480,6 @@ body {
     font-size: 18px;
   }
 
-  .footer-tel {
-    /* 変更: 電話番号をロゴ・住所の隣に収め、改行を防ぐ。 */
-    flex: 0 1 440px;
-    min-width: 0;
-    /* 変更: ボタンの上下余白と最小高さを縮め、横並びの行を薄くする。 */
-    padding: clamp(6px, 1vw, 12px) clamp(4px, 1vw, 12px);
-    min-height: clamp(56px, 10vw, 88px);
-  }
-
-  .footer-tel span {
-    font-size: clamp(12px, 2.5vw, 24px);
-  }
-
-  .footer-tel strong {
-    font-size: clamp(14px, 3.7vw, 40px);
-  }
-
   .training-disclaimer {
     /* 変更: 注意書きの上下余白をなくし、行間1.8→1.6で縦幅を抑える。 */
     margin: 0;
@@ -1586,11 +1573,16 @@ body {
     gap: 6px;
   }
 
-  .header-phone {
+  /* 変更: スマホの余白・行高・角丸もヘッダーの値をそのまま共用する。 */
+  .header-phone,
+  .footer-tel {
     line-height: 1.1;
     /* 変更: スマホでは余白と角丸を縮め、番号1行とタップ領域を確保する。 */
     padding: 6px 10px;
     border-radius: 10px;
+  }
+
+  .header-phone {
     align-self: flex-end;
   }
 
@@ -1616,7 +1608,7 @@ body {
     gap: 8px;
   }
 
-  /* 変更: フッターは上記の可変サイズを使い、スマートフォンも横並びを維持する。 */
+  /* 変更: フッターのボタンはヘッダーと同じサイズを保ち、収まらない画面幅だけ次の行へ折り返す。 */
 
   /* 変更: ナビの文字・高さ・中央揃え・改行は1439px以下の共通指定を使う。
      2列になり幅が確保できるため、スマートフォン専用の重複指定は不要。 */

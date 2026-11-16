@@ -122,8 +122,9 @@ a:focus-visible {
   object-fit: contain;
 }
 
-/* 変更: 白地と濃い緑の電話ボタン。番号の折り返しを防ぎ、既存の可変文字サイズに追従する。 */
-.header-phone {
+/* 変更: ヘッダーの見た目はそのまま、フッターでも同じ白地・緑・角丸・影・フォントを共用する。 */
+.header-phone,
+.footer-tel {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -144,13 +145,15 @@ a:focus-visible {
 }
 
 /* 変更: 受話器は番号と同じ色で、文字サイズに合わせて伸縮する。 */
-.header-phone-icon {
+.header-phone-icon,
+.footer-phone-icon {
   width: .8em;
   height: .8em;
   flex-shrink: 0;
 }
 
-.header-phone:focus-visible {
+.header-phone:focus-visible,
+.footer-tel:focus-visible {
   outline-color: #2f602b;
 }
 
@@ -735,30 +738,9 @@ a:focus-visible {
   letter-spacing: .2px;
 }
 
-.footer-tel {
-  border-radius: 32px;
-  background: var(--light);
-  color: var(--ink);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-tel span {
-  /* 変更: 電話ボタンの高さ縮小に合わせ、見出しを30→24pxにする。 */
-  font-size: 24px;
-  font-weight: 700;
-  font-family: var(--font-bold);
-  line-height: 1.2
-}
-
 .footer-tel strong {
-  /* 変更: 電話番号を48→40pxにし、小さくしたボタンに収める。 */
-  font-size: 40px;
-  line-height: 1.3;
-  font-weight: 700;
-  font-family: var(--font-bold)
+  /* 変更: 番号も親ボタンの可変文字サイズ・太字フォントにそろえる。 */
+  font: inherit;
 }
 
 .copyright {
