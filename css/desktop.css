@@ -10,24 +10,14 @@ body {
   height: 300px;
 }
 
+/* 変更: ロゴと連絡先を横並び領域で配置し、PCのロゴ寸法と左右余白を維持する。 */
+.header-info {
+  padding: 41px 54px 0 30px;
+}
+
 .header-logo {
-  position: absolute;
-  left: 30px;
-  top: 41px;
   width: 440px;
   height: 132px;
-}
-
-.header-phone {
-  position: absolute;
-  right: 54px;
-  top: 55px;
-}
-
-.header-address {
-  position: absolute;
-  right: 54px;
-  top: 132px;
 }
 
 .site-nav {
@@ -1042,7 +1032,7 @@ body {
     text-align: center;
   }
 
-  .header-logo, .header-phone, .header-address, .site-nav,
+  .site-nav,
   .footer-logo, .footer-address, .footer-tel, .training-disclaimer, .copyright {
     position: static;
     width: auto;
@@ -1050,21 +1040,40 @@ body {
     max-width: 100%;
   }
 
-  .site-header > a, .site-footer > a {
+  .site-footer > a {
     max-width: 100%;
   }
 
-  .header-logo, .footer-logo {
+  /* 変更: 狭い画面でもロゴと連絡先を横並びにし、サイズと余白を調整する。 */
+  .header-info {
+    padding: 0;
+  }
+
+  .header-contact {
+    gap: 12px;
+  }
+
+  .header-logo {
+    width: clamp(100px, 30vw, 360px);
+    height: auto;
+  }
+
+  .footer-logo {
     display: block;
     width: 360px;
   }
 
   .header-phone {
-    font-size: 36px;
+    font-size: clamp(20px, 3vw, 36px);
     line-height: 1.3;
   }
 
-  .header-address, .footer-address {
+  .header-address {
+    font-size: clamp(12px, 1.5vw, 18px);
+    line-height: 1.8;
+  }
+
+  .footer-address {
     font-size: 18px;
     line-height: 1.8;
     white-space: normal;
@@ -1411,15 +1420,12 @@ body {
     gap: 12px;
   }
 
-  .header-logo, .footer-logo {
+  .footer-logo {
     width: 300px;
   }
 
-  .header-phone {
-    font-size: 32px;
-  }
-
-  .header-address, .footer-address {
+  /* 変更: ヘッダーは共通の横並び・連絡先の縦配置を維持する。 */
+  .footer-address {
     font-size: 17px;
   }
 

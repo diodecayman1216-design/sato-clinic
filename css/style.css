@@ -82,7 +82,37 @@ a:focus-visible {
   color: white;
 }
 
+/* 変更: ロゴと連絡先の2ブロックを常に横一列に保つ。
+   画面幅が不足する場合はこの領域を横スクロールし、縦並びへの切り替えを防ぐ。 */
+.header-info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.header-info > * {
+  flex-shrink: 0;
+}
+
+/* 変更: 電話番号と住所は一塊として上下に配置し、各テキストは改行しない。 */
+.header-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 29px;
+}
+
+.header-contact > * {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
 .header-logo {
+  display: block;
   object-fit: contain;
 }
 
