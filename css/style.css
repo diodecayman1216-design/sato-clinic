@@ -73,7 +73,11 @@ a:focus-visible {
 }
 
 .site-header {
-  position: relative;
+  /* 変更: 全ページ共通でスクロール中もヘッダーを画面上部に表示する。
+     stickyで本文の配置を保ち、z-indexで本文より手前に表示する。 */
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--green);
   color: white;
 }
