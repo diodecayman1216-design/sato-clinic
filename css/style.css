@@ -827,3 +827,29 @@ a:focus-visible {
 .home-email {
   font-size: 21px;
 }
+
+/* 変更: 全6ページ共通。JSで監視を開始したブロックを下20pxから0.6秒で表示する。
+   JS無効・IntersectionObserver非対応時はクラスが付かず、通常表示を維持する。 */
+.page-main .scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page-main .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 変更: 動きを減らす設定ではスライド・フェードとスムーズスクロールを無効化する。 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-main .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
