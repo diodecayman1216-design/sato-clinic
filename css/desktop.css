@@ -1617,14 +1617,30 @@ body {
   /* 変更: フッターは上記の可変サイズを使い、スマートフォンも横並びを維持する。 */
 
   .site-nav {
-    /* 変更: スマートフォンでは文字サイズを保ち、読みやすさのため2列に切り替える。 */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
+    /* 変更: スマホは3列×2行にし、ナビだけ左右の余白を4pxに減らして長い文字も収める。 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: calc(100% + 24px);
+    max-width: none;
+    gap: 4px;
   }
 
   .site-nav a, .site-nav a:last-child {
+    /* 変更: 文字は18px・中央揃えを維持。左右の内側余白を減らし、できるだけ1行にする。 */
     font-size: 18px;
     min-height: 44px;
+    padding: 4px 1px;
+    text-align: center;
+    /* 変更: 通常は1行に収め、文字拡大などで幅が足りない場合はボタン内で折り返す。 */
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* 変更: 400px未満は2列に戻し、文字を小さくせずにはみ出しを防ぐ。 */
+  @media (max-width: 399px) {
+    .site-nav {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+    }
   }
 
   .page-main {
