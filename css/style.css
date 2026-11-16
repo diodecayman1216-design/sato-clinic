@@ -862,6 +862,160 @@ a:focus-visible {
   font-size: 21px;
 }
 
+/* 変更: 電話ポップアップ表示中だけ背景のスクロールを止める。
+   スクロールバー分の余白はJSで計算し、閉じたら元の表示に戻す。 */
+html.phone-dialog-open,
+.phone-dialog-open body {
+  overflow: hidden;
+}
+
+.phone-dialog-open body {
+  padding-right: var(--phone-scrollbar-width, 0px);
+}
+
+/* 変更: dialogは通常のページ配置から独立するため、既存ヘッダー・本文・フッターを動かさない。
+   幅は画面の左右16pxを除いた範囲、高さは画面内に収め、低い画面では内部をスクロールする。 */
+.phone-dialog {
+  width: min(440px, calc(100% - 32px));
+  max-width: calc(100% - 32px);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 25%);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.phone-dialog::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+.phone-dialog-content {
+  position: relative;
+  padding: 64px 28px 24px;
+  text-align: center;
+}
+
+.phone-dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--soft);
+  color: #2f602b;
+  font: inherit;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.phone-dialog h2 {
+  margin: 0;
+  font-family: var(--font-bold);
+  font-size: clamp(16px, 4.5vw, 22px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.phone-dialog-number {
+  margin: 20px 0 24px;
+  color: #2f602b;
+  font-family: var(--font-bold);
+  font-size: clamp(22px, 7vw, 36px);
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+  user-select: text;
+}
+
+.phone-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.phone-dialog-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px;
+  border: 2px solid #2f602b;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.phone-dialog-call {
+  background: #2f602b;
+  color: #fff;
+}
+
+.phone-dialog-copy {
+  background: #fff;
+  color: #2f602b;
+}
+
+.phone-dialog-action svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.phone-dialog :focus-visible {
+  outline: 3px solid #2f602b;
+  outline-offset: 3px;
+}
+
+.phone-dialog-copy:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.phone-dialog-status {
+  min-height: 1.6em;
+  margin: 16px 0 0;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+/* 変更: 代替コピー用の入力欄は見えない位置に固定し、表示やスクロールを動かさない。 */
+.phone-dialog-copy-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  opacity: 0;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* 変更: スマホでは内側の余白だけ縮め、16px以上の文字と52px以上の操作ボタンを維持する。 */
+@media (max-width: 480px) {
+  .phone-dialog-content {
+    padding: 60px 16px 20px;
+  }
+}
+
 /* 変更: 全6ページ共通。JSで監視を開始したブロックを下20pxから0.6秒で表示する。
    JS無効・IntersectionObserver非対応時はクラスが付かず、通常表示を維持する。 */
 .page-main .scroll-reveal {
