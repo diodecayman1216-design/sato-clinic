@@ -469,9 +469,11 @@ body {
   height: 242px;
 }
 
-/* home: PCの座標を維持。HTMLのインライン指定を撤去し、CSSから上書き可能にした。 */
+/* 変更: トップページのセクション間に40pxずつ余白を追加。
+   各セクション内の配置を保つため、後続のtopには追加分を累積する。
+   8か所の余白追加（合計320px）に合わせ、mainの高さも拡張する。 */
 .home-main {
-  height: 9218px;
+  height: 9538px;
 }
 
 .home-hero {
@@ -494,196 +496,196 @@ body {
 
 .home-hours-title {
   left: 570px;
-  top: 867px;
+  top: 907px;
   width: 300px;
   height: 70px;
 }
 
 .home-hours-table {
   left: 270px;
-  top: 980px;
+  top: 1020px;
   width: var(--content-width);
   height: 226px;
 }
 
 .home-hours-notes {
   left: 440px;
-  top: 1222px;
+  top: 1262px;
   width: 700px;
   height: 130px;
 }
 
 .home-news-title {
   left: 570px;
-  top: 1419px;
+  top: 1499px;
   width: 300px;
   height: 70px;
 }
 
 .home-news-1 {
   left: 266px;
-  top: 1532px;
+  top: 1612px;
   width: var(--content-width);
   height: 70px;
 }
 
 .home-news-2 {
   left: 266px;
-  top: 1612px;
+  top: 1692px;
   width: var(--content-width);
   height: 70px;
 }
 
 .home-news-3 {
   left: 266px;
-  top: 1692px;
+  top: 1772px;
   width: var(--content-width);
   height: 70px;
 }
 
 .home-news-4 {
   left: 266px;
-  top: 1772px;
+  top: 1852px;
   width: var(--content-width);
   height: 70px;
 }
 
 .home-news-5 {
   left: 266px;
-  top: 1852px;
+  top: 1932px;
   width: var(--content-width);
   height: 70px;
 }
 
 .home-news-more {
   left: 920px;
-  top: 1962px;
+  top: 2042px;
   width: 246px;
   height: 58px;
 }
 
 .home-services-title {
   left: 570px;
-  top: 2111px;
+  top: 2231px;
   width: 300px;
   height: 70px;
 }
 
 .home-services-intro {
   left: 320px;
-  top: 2219px;
+  top: 2339px;
   width: 820px;
   height: 65px;
 }
 
 .home-service-1 {
   left: 271px;
-  top: 2308px;
+  top: 2428px;
   width: 435px;
   height: 239px;
 }
 
 .home-service-2 {
   left: 726px;
-  top: 2308px;
+  top: 2428px;
   width: 435px;
   height: 239px;
 }
 
 .home-service-3 {
   left: 271px;
-  top: 2567px;
+  top: 2687px;
   width: 435px;
   height: 239px;
 }
 
 .home-service-4 {
   left: 726px;
-  top: 2567px;
+  top: 2687px;
   width: 435px;
   height: 239px;
 }
 
 .home-services-more {
   left: 915px;
-  top: 2856px;
+  top: 2976px;
   width: 246px;
   height: 58px;
 }
 
 .home-about-title {
   left: 570px;
-  top: 2995px;
+  top: 3155px;
   width: 300px;
   height: 70px;
 }
 
 .home-exterior {
   left: 296px;
-  top: 3108px;
+  top: 3268px;
   width: 848px;
   height: 477px;
 }
 
 .home-about-copy {
   left: 270px;
-  top: 3623px;
+  top: 3783px;
   width: var(--content-width);
   height: 139px;
 }
 
 .home-about-more {
   left: 924px;
-  top: 3810px;
+  top: 3970px;
   width: 246px;
   height: 58px;
 }
 
 .home-greeting-title {
   left: 570px;
-  top: 3959px;
+  top: 4159px;
   width: 300px;
   height: 70px;
 }
 
 .home-director-photo {
   left: 268px;
-  top: 4072px;
+  top: 4272px;
   width: 435px;
   height: 574px;
 }
 
 .home-director-caption {
   left: 268px;
-  top: 4657px;
+  top: 4857px;
   width: 435px;
   height: 95px;
 }
 
 .home-greeting-copy {
   left: 753px;
-  top: 4078px;
+  top: 4278px;
   width: 430px;
   height: 615px;
 }
 
 .home-staff-title {
   left: 570px;
-  top: 4811px;
+  top: 5051px;
   width: 300px;
   height: 70px;
 }
 
 .home-staff-intro {
   left: 266px;
-  top: 4913px;
+  top: 5153px;
   width: var(--content-width);
   height: 78px;
 }
 
 .home-doctor-card {
   left: 269px;
-  top: 5035px;
+  top: 5275px;
   width: 435px;
   height: 418px;
 }
@@ -695,112 +697,112 @@ body {
 
 .home-nurse-card {
   left: 734px;
-  top: 5035px;
+  top: 5275px;
   width: 435px;
   height: 418px;
 }
 
 .home-lab-card {
   left: 269px;
-  top: 5484px;
+  top: 5724px;
   width: 435px;
   height: 418px;
 }
 
 .home-admin-card {
   left: 734px;
-  top: 5484px;
+  top: 5724px;
   width: 435px;
   height: 418px;
 }
 
 .home-staff-more {
   left: 925px;
-  top: 5952px;
+  top: 6192px;
   width: 246px;
   height: 58px;
 }
 
 .home-faq-title {
   left: 570px;
-  top: 6101px;
+  top: 6381px;
   width: 300px;
   height: 70px;
 }
 
 .home-faq-consultation {
   left: 270px;
-  top: 6214px;
+  top: 6494px;
   width: 435px;
   height: 239px;
 }
 
 .home-faq-vaccination {
   left: 735px;
-  top: 6214px;
+  top: 6494px;
   width: 435px;
   height: 239px;
 }
 
 .home-faq-payments {
   left: 270px;
-  top: 6483px;
+  top: 6763px;
   width: 435px;
   height: 239px;
 }
 
 .home-faq-other {
   left: 735px;
-  top: 6483px;
+  top: 6763px;
   width: 435px;
   height: 239px;
 }
 
 .home-faq-more {
   left: 924px;
-  top: 6772px;
+  top: 7052px;
   width: 246px;
   height: 58px;
 }
 
 .home-access-title {
   left: 570px;
-  top: 6921px;
+  top: 7241px;
   width: 300px;
   height: 70px;
 }
 
 .home-location {
   left: 270px;
-  top: 7034px;
+  top: 7354px;
   width: var(--content-width);
   height: 869px;
 }
 
 .home-subjects {
   left: 270px;
-  top: 7933px;
+  top: 8253px;
   width: var(--content-width);
   height: 392px;
 }
 
 .home-contact {
   left: 270px;
-  top: 8355px;
+  top: 8675px;
   width: var(--content-width);
   height: 355px;
 }
 
 .home-access-hours-table {
   left: 270px;
-  top: 8770px;
+  top: 9090px;
   width: var(--content-width);
   height: 226px;
 }
 
 .home-access-hours-notes {
   left: 440px;
-  top: 9012px;
+  top: 9332px;
   width: 700px;
   height: 130px;
 }
@@ -1158,6 +1160,14 @@ body {
 
   .page-main > .title-rule:first-of-type {
     margin-top: 0;
+  }
+
+  /* 変更: トップページのみ見出し上の余白を32pxから56pxへ拡張。
+     最初の「診療時間」にも適用し、ヒーローとの区切りを明確にする。
+     セクション内の要素間隔は既存のgapを維持する。 */
+  .home-main > .title-rule,
+  .home-main > .title-rule:first-of-type {
+    margin-top: 56px;
   }
 
   .page-main > .sub-title {
