@@ -582,8 +582,8 @@ body {
   height: 58px;
 }
 
-/* 変更: カードをまとめる枠自体は表示せず、1440px以上の既存の2列配置と
-   スマートフォンの1列表示をそのまま保つ。 */
+/* 変更: 1440px以上は枠を作らず既存の2列配置を維持する。
+   それ未満の幅では末尾のGrid設定で列数と間隔を管理する。 */
 .home-services-cards,
 .home-staff-cards {
   display: contents;
@@ -1150,7 +1150,7 @@ body {
 
   .site-nav {
     display: grid;
-    /* 変更: PC・タブレットは6列を維持し、幅制限と間隔を調整して一行に収める。 */
+    /* 変更: PCは6列を維持。1100px以下の列数は末尾の専用ルールで切り替える。 */
     grid-template-columns: repeat(6, minmax(0, 1fr));
     width: 100%;
     max-width: 100%;
@@ -1506,43 +1506,43 @@ body {
   }
 }
 
-/* 変更: PCで縦並びになっていた幅でも、診療内容・スタッフをそれぞれ2列にする。
-   768px以下には適用せず、既存のスマートフォン表示を維持する。 */
-@media (min-width: 769px) and (max-width: 1439px) {
+/* 変更: トップページの対象3セクションだけをGridで管理する。
+   狭い画面も枠とgapを持たせ、1列時にカード同士がくっつくのを防ぐ。
+   1440px以上は既存のPC用2列配置をそのまま使う。 */
+@media (max-width: 1439px) {
   .home-services-cards,
-  .home-staff-cards {
+  .home-staff-cards,
+  .home-faq-categories {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(20px, 2.5vw, 24px);
     align-items: stretch;
   }
+}
 
-  /* 変更: 高さは内容に合わせて伸ばし、同じ行は高い方にそろえて文字や画像の切れを防ぐ。 */
-  .home-services-cards > .home-tile {
+/* 変更: 700px以上なら文字とアイコンの幅を確保できるため2列にする。
+   minmax(0, 1fr)で均等幅にし、長い文章は改行して同じ行の高さをそろえる。 */
+@media (min-width: 700px) and (max-width: 1439px) {
+  .home-services-cards,
+  .home-staff-cards,
+  .home-faq-categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* 変更: 余白と間隔だけを縮めて文章の幅を確保し、高さは内容に応じて伸ばす。 */
+  .home-services-cards > .home-tile,
+  .home-faq-categories > .home-tile {
+    padding: 24px 16px;
+    gap: 16px;
     min-height: 200px;
   }
 }
 
-/* 変更: 769〜1439pxでもFAQボタンを2列にする。1440px以上の既存の2列配置と、
-   768px以下の1列表示は維持し、他のセクションには適用しない。 */
-@media (min-width: 769px) and (max-width: 1439px) {
-  .home-faq-categories {
-    display: grid;
+/* 変更: 6列ではボタンが窮屈になる中間幅は2列×3行にする。
+   文字サイズは既存の18pxを維持し、幅・余白だけを調整する。 */
+@media (max-width: 1100px) {
+  .site-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 24px;
-  }
-
-  /* 変更: 固定位置とサイズを解除して均等な列幅に収め、高さは全ボタンでそろえる。
-     長い見出しは既存の文字サイズのまま折り返せるようにする。 */
-  .home-faq-categories > .home-tile {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    min-height: 200px;
-    margin: 0;
   }
 }
 
@@ -1616,32 +1616,8 @@ body {
 
   /* 変更: フッターは上記の可変サイズを使い、スマートフォンも横並びを維持する。 */
 
-  .site-nav {
-    /* 変更: スマホは3列×2行にし、ナビだけ左右の余白を4pxに減らして長い文字も収める。 */
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: calc(100% + 24px);
-    max-width: none;
-    gap: 4px;
-  }
-
-  .site-nav a, .site-nav a:last-child {
-    /* 変更: 文字は18px・中央揃えを維持。左右の内側余白を減らし、できるだけ1行にする。 */
-    font-size: 18px;
-    min-height: 44px;
-    padding: 4px 1px;
-    text-align: center;
-    /* 変更: 通常は1行に収め、文字拡大などで幅が足りない場合はボタン内で折り返す。 */
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-
-  /* 変更: 400px未満は2列に戻し、文字を小さくせずにはみ出しを防ぐ。 */
-  @media (max-width: 399px) {
-    .site-nav {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      width: 100%;
-    }
-  }
+  /* 変更: ナビの文字・高さ・中央揃え・改行は1439px以下の共通指定を使う。
+     2列になり幅が確保できるため、スマートフォン専用の重複指定は不要。 */
 
   .page-main {
     padding: 32px 16px 48px;
@@ -1741,5 +1717,17 @@ body {
 
   .home-email {
     font-size: 18px;
+  }
+}
+
+/* 変更: 360px未満では長いボタン名も読みやすいよう1列にする。
+   高くなるヘッダーは通常スクロールに戻し、本文の閲覧領域を確保する。 */
+@media (max-width: 359px) {
+  .site-nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-header {
+    position: relative;
   }
 }

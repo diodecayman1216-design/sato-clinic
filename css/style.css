@@ -82,34 +82,36 @@ a:focus-visible {
   color: white;
 }
 
-/* 変更: ロゴと連絡先の2ブロックを常に横一列に保つ。
-   画面幅が不足する場合はこの領域を横スクロールし、縦並びへの切り替えを防ぐ。 */
+/* 変更: ロゴと連絡先は横並びを基本にし、収まらない場合は折り返す。
+   横スクロールに頼らず、文字の拡大時にも情報を画面内に表示する。 */
 .header-info {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   width: 100%;
-  overflow-x: auto;
 }
 
 .header-info > * {
   flex-shrink: 0;
 }
 
-/* 変更: 電話番号と住所は一塊として上下に配置し、各テキストは改行しない。 */
+/* 変更: 電話番号と住所は一塊として上下に配置し、幅不足時だけ枠内で改行する。 */
 .header-contact {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   /* 変更: 電話番号と住所の間隔を縮め、固定ヘッダーの高さを抑える。 */
   gap: 8px;
+  /* 変更: 狭い画面では住所を枠内で改行できるよう、連絡先の幅に上限を設ける。 */
+  max-width: 100%;
+  min-width: 0;
 }
 
 .header-contact > * {
-  white-space: nowrap;
-  overflow-wrap: normal;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .header-logo {
@@ -131,7 +133,8 @@ a:focus-visible {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: .35px;
-  white-space: nowrap;
+  /* 変更: 住所が長い場合は文字を縮めず、自然な改行で重なりを防ぐ。 */
+  white-space: normal;
 }
 
 .site-nav {

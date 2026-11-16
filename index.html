@@ -20,7 +20,7 @@
   <body>
     <div class="site-frame">
       <header class="site-header">
-        <!-- 変更: ロゴと連絡先ブロックは常に横並び。電話番号と住所はブロック内で上下に配置する。 -->
+        <!-- 変更: ロゴと連絡先は横並びを基本に、収まらない幅では折り返して重なりを防ぐ。 -->
         <div class="header-info">
           <a href="index.html" aria-label="佐藤医院 トップページ"><img src="./assets/logo.png" alt="" class="header-logo" alt="佐藤医院 Sato Clinic"></a>
           <!-- 変更: 連絡先を一塊に保ち、スマホでは電話番号・郵便番号・住所を3行にして高さを整える。 -->
@@ -136,7 +136,7 @@
         <div class="block copy home-services-intro" >
           <p>当院では、地域の皆様の健康を支えるため、幅広い内科診療を行っております。日常的な体調管理から、各種の検査や治療に至るまで、どんなお悩みもお気軽にご相談ください。</p>
         </div>
-        <!-- 変更: 診療内容の4枚を専用の枠にまとめ、PCでこのセクションだけを2列に並べる。 -->
+        <!-- 変更: 診療内容の4枚をまとめ、700px以上は2列、狭い画面は1列で読みやすさを保つ。 -->
         <div class="home-services-cards">
           <a
             class="block home-tile panel home-service-1"
@@ -201,7 +201,7 @@
         <div class="block copy home-staff-intro" >
           <p>地域の皆様に安心してご来院いただけるよう、スタッフ一同、誠心誠意対応いたします。それぞれの専門性と温かさを活かし、皆様の健康を支えるパートナーとしてお力になれるよう努めてまいります。</p>
         </div>
-        <!-- 変更: スタッフの4枚を別の枠にまとめ、診療内容と混ざらずPCで2列に並べる。 -->
+        <!-- 変更: スタッフの4枚をまとめ、700px以上は2列、狭い画面は1列にして写真の幅を確保する。 -->
         <div class="home-staff-cards">
           <a class="block panel home-doctor-card" href="staff.html">
             <div class="home-staff-card-body">
@@ -246,7 +246,7 @@
         </div>
         <a class="block more-link home-staff-more" href="staff.html">もっと見る →</a>
         <h2 class="block title-rule home-faq-title" >よくあるご質問</h2>
-        <!-- 変更: 4つのボタンをまとめ、PCで左から順に2列に並べる。スマートフォンでは従来の1列を維持する。 -->
+        <!-- 変更: FAQの4枚をまとめ、700px以上は2列、狭い画面は1列にして長い見出しを自然に改行する。 -->
         <div class="home-faq-categories">
           <a
             class="block home-tile panel home-faq-consultation"
