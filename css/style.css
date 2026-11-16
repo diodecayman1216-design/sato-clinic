@@ -87,7 +87,8 @@ a:focus-visible {
 .header-info {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  /* 変更: ロゴと連絡先を上辺でそろえる。電話番号・郵便番号・住所の段間隔とヘッダー上部の余白は維持する。 */
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   width: 100%;
@@ -102,6 +103,8 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  /* 変更: ロゴ・ナビの配置と段間隔を保ち、電話ボタンと住所をまとめて8px下げる。 */
+  transform: translateY(8px);
   /* 変更: 電話番号と住所の間隔を縮め、固定ヘッダーの高さを抑える。 */
   gap: 8px;
   /* 変更: 狭い画面では住所を枠内で改行できるよう、連絡先の幅に上限を設ける。 */
